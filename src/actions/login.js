@@ -48,7 +48,7 @@ export const authFailure = (err) => ({
 export const authRequest = () => (dispatch, getState) => {
   const state = getState();
   dispatch(authWaiting());
-  return axios.post('/api/members', {
+  return axios.post('/api/members/login', {
     token: state.loginReducer.kakaoAuthorize.token,
   }).then((response) => {
     dispatch(authSuccess(response));
