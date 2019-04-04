@@ -49,10 +49,38 @@ export const authRequest = () => (dispatch, getState) => {
   const state = getState();
   dispatch(authWaiting());
   return axios.post('/api/members/login', {
-    token: state.loginReducer.kakaoAuthorize.token,
+    token: state.authReducer.kakaoAuthorize.token,
   }).then((response) => {
     dispatch(authSuccess(response));
   }).catch((err) => {
     dispatch(authFailure(err));
+  })
+}
+
+export const getMeWaiting = () => ({
+  type: types.GET_ME_WAITING,
+});
+
+export const getMeSuccess = (response) => ({
+  type: types.GET_ME_SUCCESS,
+  response,
+});
+
+export const getMeFailure = (err) => ({
+  type: types.GET_ME_FAILURE,
+  err,
+});
+
+export const getMeRequest = () => (dispatch, getState) => {
+  const state = getState();
+  dispatch(getMeWaiting());
+  return axios.get('/api/members/me', {
+    headers: {
+      Authorization: `Bearer ${state.authReducer.auth.token}`,
+    }
+  }).then((response) => {
+    dispatch(getMeSuccess(response));
+  }).catch((err) => {
+    dispatch(getMeFailure(err));
   })
 }

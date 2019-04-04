@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
-import { LoginContainer } from 'containers';
+import { LoginContainer, DashboardContainer } from 'containers';
 import { Deposit, Transfer, Stock, Ranking } from 'components';
 
 import 'styles/App.scss';
@@ -23,6 +23,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Route exact path="/" component={LoginContainer} auth={this.props.auth} />
+        <PrivateRoute path="/dashboard" component={DashboardContainer} auth={this.props.auth} />
         <PrivateRoute path="/deposit" component={Deposit} auth={this.props.auth} />
         <PrivateRoute path="/transfer" component={Transfer} auth={this.props.auth} />
         <PrivateRoute path="/stock" component={Stock} auth={this.props.auth} />

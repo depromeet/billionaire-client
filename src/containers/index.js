@@ -1,5 +1,6 @@
 import LoginContainer from './LoginContainer';
+import DashboardContainer from './DashboardContainer';
 
 export {
-  LoginContainer
+  LoginContainer, DashboardContainer,
 };

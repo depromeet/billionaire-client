@@ -2,7 +2,7 @@ import App from 'components/App';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => (
-  state.loginReducer
+  state.authReducer
 );
 
 const mapDispatchToProps = () => ({});

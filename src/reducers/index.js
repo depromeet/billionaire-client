@@ -1,4 +1,4 @@
-import loginReducer from './loginReducer';
+import authReducer from './authReducer';
 import depositReducer from './depositReducer';
 import transferReducer from './transferReducer';
 import stockReducer from './stockReducer';
@@ -8,7 +8,7 @@ import { combineReducers } from 'redux';
 
 export default combineReducers(
   {
-    loginReducer, depositReducer, transferReducer,
+    authReducer, depositReducer, transferReducer,
     stockReducer, rankingReducer,
   }
 );

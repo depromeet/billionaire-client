@@ -19,7 +19,7 @@ class Login extends Component {
         <button onClick={this.login}>로그인 (예금 페이지로)</button>
         {
           this.props.auth.status === 'SUCCESS' &&
-          <Redirect to="/deposit" />
+          <Redirect to="/dashboard" />
         }
       </div>
     );

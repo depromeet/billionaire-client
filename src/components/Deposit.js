@@ -7,6 +7,7 @@ class Deposit extends Component {
     return (
       <div className="deposit">
         예금 페이지
+        <Link to="/dashboard">대시보드로</Link>
         <Link to="/stock">주식 페이지로</Link>
         <Link to="/ranking">랭킹 페이지로</Link>
         <Link to="/transfer">송금 페이지로</Link>

@@ -1,9 +1,9 @@
 import { Login } from 'components';
-import * as actions from 'actions/login';
+import * as actions from 'actions/auth';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => (
-  state.loginReducer
+  state.authReducer
 );
 
 const mapDispatchToProps = (dispatch) => ({

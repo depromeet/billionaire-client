@@ -8,10 +8,15 @@ const initialState = {
   auth: {
     status: null,
     response: null,
+    token: null,
   },
+  me: {
+    status: null,
+    data: null,
+  }
 };
 
-export default function loginReducer(state, action) {
+export default function authReducer(state, action) {
   if (typeof state === "undefined") {
     state = initialState;
   }
@@ -56,6 +61,7 @@ export default function loginReducer(state, action) {
         auth: {
           status: 'SUCCESS',
           response: action.response,
+          token: action.response.data.response.token,
         },
       }
 
@@ -63,6 +69,32 @@ export default function loginReducer(state, action) {
       return state = {
         ...state,
         auth: {
+          status: 'FAILURE',
+          err: action.err,
+        },
+      }
+
+    case types.GET_ME_WAITING:
+      return state = {
+        ...state,
+        me: {
+          status: 'WAITING',
+        },
+      }
+      
+    case types.GET_ME_SUCCESS:
+      return state = {
+        ...state,
+        me: {
+          status: 'SUCCESS',
+          data: action.response.data.response,
+        },
+      }
+
+    case types.GET_ME_FAILURE:
+      return state = {
+        ...state,
+        me: {
           status: 'FAILURE',
           err: action.err,
         },
