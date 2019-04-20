@@ -1,39 +1,39 @@
 import * as types from 'actions/actionTypes';
 
 const initialState = {
-  ranking: {
+  accounts: {
     status: null,
     data: null,
   }
 };
 
-export default function rankingReducer(state, action) {
+export default function accountReducer(state, action) {
   if (typeof state === "undefined") {
     state = initialState;
   }
   
   switch (action.type) {
-    case types.GET_RANKING_WAITING:
+    case types.GET_ACCOUNT_WAITING:
       return state = {
         ...state,
-        ranking: {
+        accounts: {
           status: 'WAITING',
         },
       }
     
-    case types.GET_RANKING_SUCCESS:
+    case types.GET_ACCOUNT_SUCCESS:
       return state = {
         ...state,
-        ranking: {
+        accounts: {
           status: 'SUCCESS',
-          data: action.response.data,
+          data: action.response.data.response,
         }
       }
 
-    case types.GET_RANKING_FAILURE:
+    case types.GET_ACCOUNT_FAILURE:
       return state = {
         ...state,
-        ranking: {
+        accounts: {
           status: 'FAILURE',
           err: action.err,
         },

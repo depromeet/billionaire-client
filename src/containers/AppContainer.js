@@ -1,11 +1,14 @@
 import App from 'components/App';
+import * as actions from 'actions/auth';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => (
   state.authReducer
 );
 
-const mapDispatchToProps = () => ({});
+const mapDispatchToProps = (dispatch) => ({
+  getMeRequest: () => dispatch(actions.getMeRequest()),
+});
 
 const AppContainer = connect(
   mapStateToProps,

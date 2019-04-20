@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 import axios from 'axios';
 
 export const kakaoAuthorizeWaiting = () => ({
-  type: types.KAKAO_AUTHORIZE_WAITING
+  type: types.KAKAO_AUTHORIZE_WAITING,
 });
 
 export const kakaoAuthorizeSuccess = (authObj) => ({
@@ -35,10 +35,12 @@ export const authWaiting = () => ({
   type: types.AUTH_WAITING,
 });
 
-export const authSuccess = (response) => ({
-  type: types.AUTH_SUCCESS,
-  response,
-});
+export const authSuccess = (response) => {
+  return {
+    type: types.AUTH_SUCCESS,
+    response,
+  }
+};
 
 export const authFailure = (err) => ({
   type: types.AUTH_FAILURE,
@@ -52,6 +54,7 @@ export const authRequest = () => (dispatch, getState) => {
     token: state.authReducer.kakaoAuthorize.token,
   }).then((response) => {
     dispatch(authSuccess(response));
+    dispatch(getMeRequest());
   }).catch((err) => {
     dispatch(authFailure(err));
   })

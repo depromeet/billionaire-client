@@ -8,8 +8,8 @@ class Transfer extends Component {
       <div className="transfer">
         송금 페이지
         <Link to="/dashboard">대시보드로</Link>
-        <Link to="/deposit">예금 페이지로</Link>
-        <Link to="/stock">주식 페이지로</Link>
+        <Link to="/account">예금 페이지로</Link>
+        <Link to="/product">주식 페이지로</Link>
         <Link to="/ranking">랭킹 페이지로</Link>
       </div>
     );

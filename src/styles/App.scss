@@ -1,0 +1,157 @@
+/* 공통 적용(리셋) */
+body{margin:0;font-family:"AppleSDGothicNeo";font-size:16px;font-style:normal;font-stretch:normal;color:#ffffff;background:#212121}
+h1{margin:0}
+ul{padding-left:0;margin:0}
+li{list-style:none}
+button{border:0;cursor:pointer}
+button:focus{outline:none}
+select:focus{outline:none}
+input[type=text]:focus{outline:none}
+.wrapper{padding:0 25px}
+.num {font-family:"Exo 2", sans-serif}
+.emphasis{font-size:28px;font-weight:bold} 
+.underline{line-height:16px;letter-spacing:0.5px;background: linear-gradient(0, #5227ff 20%, transparent 10%);box-shadow:inset 0 -3px #212121}
+.visible{display:block}
+.hidden{display:none}
+
+/* 헤더(로고와 메뉴버튼) */
+.header{padding:26px 0;position:relative}
+.header::after{content:'';clear:both;display:block}
+.header-logo{float:left;width:91px;height:29px;color:transparent;background:url('/assets/depgazua-bi.svg')}
+.header-previous{float:left;width:12px;height:24px;color:transparent;background:url('/assets/icon-down.svg')}
+.header-menu{position:absolute;top:50%;right:0;transform:translateY(-50%)}
+.btn-menu{background:transparent;color:transparent;width:24px;height:20px;overflow:hidden}
+.menubar{position:absolute;left:0;width:100%;height:2px;background:#fff;border-radius:5px;transition:all 0.5s}
+.menubar-top{top:0}
+.menubar-middle{top:50%;transform:translateY(-25%)}
+.menubar-bottom{bottom:0}
+
+/* 02_main_1 */
+/* 선택문구 */
+.selection{margin-top:8px;font-size: 26px;font-weight:100;line-height:1.38;letter-spacing:normal;color:#fff}
+.selection-select{width:134px;height:40px;font-size:26px;font-weight:normal;line-height:1;letter-spacing:normal;color:#fff;background:transparent;border:0}
+.selection-select1{display:inline-block;padding:0 5px;font-size:26px;font-weight:normal;letter-spacing:normal;color:#fff;border:0;background:#2f2f2f;vertical-align:text-bottom}
+.selection-icon{width:17px}
+
+/* 자기 프로필 섹션 */
+.profile{margin-top:35px;position:relative}
+.profile::after{content:'';clear:both;display:block}
+.profile-img{border-radius:100px}
+.profile img {float:left;width:60px;height:60px}
+.profile-info{width:84px;position:absolute;left:70px;bottom:0;line-height:1.44;letter-spacing:0.1px}
+.profile-account{text-align:right;line-height:16px;position:absolute;right:0;bottom:0}
+
+/* 검색창 */
+.search {margin-top:44px}
+.input-search{color:#fff;font-weight:bold;line-height:20px;box-sizing:border-box;width:100%;height:40px;background:transparent;border:0;border-bottom:solid 4px #5227ff;padding:10px 0;font-size:16px;background:no-repeat right bottom 7px/8% url("/assets/icon.svg");}
+.input-search::placeholder{font-weight:300;}
+
+/* 검색결과 리스트 */
+.profile-list {width:100%;margin:24px 0}
+.profile-list li{width:100%;margin:10px 0}
+.profile-list li:nth-child(1){color:#ffdc6c}
+.profile-list li:nth-child(2){color:#c6cace}
+.profile-list li:nth-child(3){color:#db8c7f}
+.profile-list li:last-child{margin-bottom:70px}
+.profile-list li>span{margin-right:8px}
+.profile-list-img{width:40px;height:40px;vertical-align:middle;margin-left:8px}
+.profile-list-name{display:inline-block;margin-left:15px}
+.profile-list-account{float:right;transform:translateY(50%)}
+.list-num{display:inline-block;width:16px;text-align:center}
+
+/* 더보기 버튼 */
+.btn-fixed{position:fixed;height:60px;bottom:0;left:0;width:100%;}
+.btn-more{background:rgba(82,39,255,0.8);font-family:'AppleSDGothicNeo';font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
+.btn-more span::after{content:'';margin-left:5px;display:inline-block;width:10px;height:10px;border-bottom:1px solid #fff;border-right:1px solid #fff;transform:rotate(46deg) translateY(-22%);}
+
+/* 02_main_3 */
+/* 랭킹3위 섹션 */
+.ranking{margin:30px 0 23px 0;height:212px;position:relative}
+.ranking-profile{position:absolute;font-weight:bold}
+.ranking-1st{top:40px;left:50%;transform:translateX(-50%);color:#ffdc6c}
+.ranking-1st::before{content:'';display:block;width:24px;height:24px;background:no-repeat center / 100% url('/assets/1st-invalid-name.png');position:absolute;top:-11px;left:50%;transform:translateX(-50%);}
+.ranking-1st img {width:96px;height:96px}
+.ranking-2nd{top:116px;left:8%;color:#c6cace}
+.ranking-2nd::before{content:'';display:block;width:24px;height:24px;background:no-repeat center / 100% url('/assets/2nd-invalid-name.png');position:absolute;top:-11px;left:50%;transform:translateX(-50%);}
+.ranking-2nd img {width:80px;height:80px}
+.ranking-3rd{top:116px;right:8%;color:#db8c7f}
+.ranking-3rd::before{content:'';display:block;width:24px;height:24px;background:no-repeat center / 100% url('/assets/3rd-invalid-name.png');position:absolute;top:-11px;left:50%;transform:translateX(-50%);}
+.ranking-3rd img {width:80px;height:80px}
+.ranking-word{font-size:14px;position:absolute;bottom:-10px;left:50%;transform:translateX(-50%)}
+.ranking-num{font-size:20px}
+
+/* 03_account_1 */
+/* 계좌 리스트(메인/서브) */
+.account-list{margin-top:25px}
+.account-item{width:100%;height:180px;position:relative;font-size:20px;margin:8px 0}
+.account-number{font-weight:bold;white-space:nowrap}
+.account-info{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.account-name{color:#222222;position:absolute;top:11px;left:12px;font-size:13px;font-weight:300}
+.main-account{background:#5227ff}
+.main-number{color:#10024d}
+.sub-account{background:#ab9c6b}
+.sub-number{color:#5c594d}
+
+/* 계좌번호 복사버튼 */
+.account-copy{display:inline-block}
+.btn-copy{width:14px;height:14px;overflow:hidden;vertical-align:middle;color:transparent;background:transparent;position:relative}
+.copybox{position:absolute;width:8px;height:8px;border:1px solid;border-color:inherit}
+.copy-back{top:0;left:0}
+.copy-front{top:25%;right:0}
+
+/* 03_account_2 */
+/* 계좌 거래내역 */
+.account-detail{height:141px}
+.transaction-history{margin:24px 0 66px 0;width:100%}
+.transaction-history:after{content:'';clear:both;display:block}
+.transaction-date{width:10%;float:left;line-height:16px}
+.transaction-list{width:80%;float:right}
+.transaction-list li:nth-child(n+2){margin-top:66px}
+.transaction-item{position:relative}
+.transaction-info{width:auto;font-weight:300}
+.transaction-amount{float:right;line-height:16px}
+.transaction-time{position:absolute;top:22px;left:0}
+.transaction-result{position:absolute;top:22px;right:0}
+.subinfo{color:#616161;font-size:13px;font-weight:bold;line-height:1.54}
+
+/* 04_product_3 */
+/* 약관 동의화면 */
+.agreement{margin:10px 0}
+.agreement-title{font-size:26px;line-height:32px;font-weight:300}
+.agreement-content{height:329px;overflow:scroll;background:#19191b;color:#686868;font-size:14px;font-weight:300;padding:19px 25px;white-space:pre-line;line-height:23px}
+.data-panel{transform:translateX(-7%);width:100%;margin-top:10px;}
+.terms{margin:22px 0}
+.terms-title{width:60px;font-weight:300;color:#aaa;display:inline-block}
+.terms-content-large{font-size:20px;font-weight:bold;margin-left:29px}
+.terms-content-medium{font-weight:300;margin-left:29px}
+
+/* 약관 동의버튼 */
+.btn-agree{background:rgba(82,39,255,0.8);font-family:'AppleSDGothicNeo';font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
+.btn-agree span::before{content:'';margin-right:10px;display:inline-block;width:9px;height:15px;border-bottom:2px solid #fff;border-right:2px solid #fff;transform:rotate(46deg) translateY(-22%)}
+
+/* 04_product_2 */
+/* 투자상품 구매화면 */
+.terms-condition{float:right;width:calc(100% - 89px)}
+.earning{margin-top:12px;position:relative}
+.earning-title{font-weight:300;line-height:32px;display:inline-block}
+.earning-amount{position:absolute;top:32px;right:10px}
+.earning-current{font-size:28px;font-weight:bold;color:#f0f0f0;line-height:28px;}
+.earning-variation{font-size:14px;font-weight:bold;line-height:15px;}
+.earning-graph{}
+.raise{color:#5a7eff}
+.raise::after{content:'';background:no-repeat center url('/assets/raise-triangle.svg');width:10px;height:8px;display:inline-block;position:absolute;bottom:6px;margin-left:1px}
+.down{color:#ff5a5a}
+.down::after{content:'';background:no-repeat center url('/assets/down-triangle.svg');width:10px;height:8px;display:inline-block;position:absolute;bottom:6px;margin-left:1px}
+
+/* 구매버튼 */
+.btn-buy{background:rgba(82,39,255,0.8);font-family:'AppleSDGothicNeo';font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
+
+/* 04_product_4 */
+/* 모달과 마스크 */
+.mask{position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.7)}
+.modal{width:calc(100% - 50px);height:210px;z-index:999;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#212121;padding:46px 0;text-align:center;box-sizing:border-box;font-size:20px;font-weight:300}
+.btn-confirm{position:absolute;bottom:0;left:0;height:60px;background:#5227ff;width:100%;font-size:16px;font-weight:300;line-height:20px;color:#ffffff}
+
+/* 04_product_1_d */
+/* 상품 상세 버튼 */
+.btn-detail{height:60px;bottom:0;left:0;width:100%;margin:12px 0 66px 0}

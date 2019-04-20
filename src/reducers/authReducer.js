@@ -44,6 +44,7 @@ export default function authReducer(state, action) {
         ...state,
         kakaoAuthorize: {
           status: 'FAILURE',
+          err: action.err,
         },
       }
 

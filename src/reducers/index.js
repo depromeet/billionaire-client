@@ -1,14 +1,14 @@
 import authReducer from './authReducer';
-import depositReducer from './depositReducer';
+import accountReducer from './accountReducer';
 import transferReducer from './transferReducer';
-import stockReducer from './stockReducer';
+import productReducer from './productReducer';
 import rankingReducer from './rankingReducer';
 
 import { combineReducers } from 'redux';
 
 export default combineReducers(
   {
-    authReducer, depositReducer, transferReducer,
-    stockReducer, rankingReducer,
+    authReducer, accountReducer, transferReducer,
+    productReducer, rankingReducer,
   }
 );
