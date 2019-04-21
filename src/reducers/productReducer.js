@@ -21,6 +21,7 @@ export default function productReducer(state, action) {
       return state = {
         ...state,
         products: {
+          ...state.products,
           status: 'WAITING',
         },
       }

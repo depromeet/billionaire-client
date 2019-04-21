@@ -17,6 +17,7 @@ export default function accountReducer(state, action) {
       return state = {
         ...state,
         accounts: {
+          ...state.accounts,
           status: 'WAITING',
         },
       }

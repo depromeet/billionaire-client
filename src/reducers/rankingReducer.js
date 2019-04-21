@@ -17,6 +17,7 @@ export default function rankingReducer(state, action) {
       return state = {
         ...state,
         ranking: {
+          ...state.ranking,
           status: 'WAITING',
         },
       }
