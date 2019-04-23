@@ -11,11 +11,10 @@ import RankingSaturday from './RankingSaturday';
 import Transfer from './Transfer';
 import Modal from './Modal';
 
-
 export {
   Login, Header, Dashboard, 
   Account, AccountDetail,
   Product, ProductDetail, ProductAgreement,
   Ranking, RankingSaturday, Transfer, 
-  Modal,
+  Modal, 
 };

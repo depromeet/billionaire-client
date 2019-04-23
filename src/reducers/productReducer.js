@@ -8,6 +8,9 @@ const initialState = {
   productDetail: {
     status: null,
     data: null,
+  },
+  join: {
+    status: null,
   }
 };
 
@@ -69,6 +72,34 @@ export default function productReducer(state, action) {
           err: action.err,
         },
       }
+
+    case types.JOIN_PRODUCT_WAITING:
+      return state = {
+        ...state,
+        join: {
+          status: 'WAITING',
+        },
+      }
+    
+    case types.JOIN_PRODUCT_SUCCESS:
+      return state = {
+        ...state,
+        join: {
+          status: 'SUCCESS',
+        }
+      }
+
+    case types.JOIN_PRODUCT_FAILURE:
+      return state = {
+        ...state,
+        join: {
+          status: 'FAILURE',
+          err: action.err,
+        },
+      }
+
+    
+
     default:
       return state;
   }

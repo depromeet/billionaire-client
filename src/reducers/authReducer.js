@@ -13,6 +13,10 @@ const initialState = {
   me: {
     status: null,
     data: null,
+  },
+  attend: {
+    status: null,
+    data: null,
   }
 };
 
@@ -97,6 +101,32 @@ export default function authReducer(state, action) {
       return state = {
         ...state,
         me: {
+          status: 'FAILURE',
+          err: action.err,
+        },
+      }
+
+    case types.ATTEND_WAITING:
+      return state = {
+        ...state,
+        attend: {
+          status: 'WAITING',
+        },
+      }
+      
+    case types.ATTEND_SUCCESS:
+      return state = {
+        ...state,
+        attend: {
+          status: 'SUCCESS',
+          data: action.response,
+        },
+      }
+
+    case types.ATTEND_FAILURE:
+      return state = {
+        ...state,
+        attend: {
           status: 'FAILURE',
           err: action.err,
         },

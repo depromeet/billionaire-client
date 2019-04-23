@@ -17,21 +17,46 @@ class ProductDetail extends Component {
 
   closeMessage = () => {
     this.setState(() => ({
+      isShowAgreement: false,
       isMessageOpened: false,
       redirect: '/account',
     }));
   }
 
   handleAgree = () => {
-    this.setState(() => ({
-      isShowAgreement: false,
+    this.joinProduct();
+    this.setState((state) => ({
+      ...state,
       isMessageOpened: true,
     }));
+  }
+
+  joinProduct = () => {
+    const { joinProductRequest, id } = this.props;
+    joinProductRequest(id);
+  }
+
+  getNowDate = () => {
+    const now = new Date();
+    let year = now.getFullYear().toString();
+    let month = now.getMonth() + 1;
+    let date = now.getDate();
+
+    if (month < 10) {
+      month = `0${month}`;
+    }
+    if (date < 10) {
+      date = `0${date}`;
+    }
+    year = year.substr(year.length - 2, 2);
+    
+    return `${year}.${month}.${date}`;
   }
 
   componentDidMount () {
     const { getProductDetailRequest, id } = this.props;
     getProductDetailRequest(id);
+    console.log(this.getNowDate())
   }
 
   render() {
@@ -48,7 +73,7 @@ class ProductDetail extends Component {
           </>
           :
           <>
-            <Header link="/product" />
+            <Header goBack={this.props.goBack} />
             {
               this.props.data &&
               <>
@@ -80,11 +105,23 @@ class ProductDetail extends Component {
           </>
         }
         {
-          this.state.isMessageOpened &&
-          <Modal>
-            투자금액 <span className="num">500</span>家를<br/> <span className="num">19.04.02</span>에 구매했습니다.
-            <button id="modalConfirm" className="btn-confirm" onClick={this.closeMessage}>확인</button>
-          </Modal>
+          this.state.isMessageOpened && 
+            (
+              this.props.join.status === "SUCCESS" ?
+                <Modal>
+                  투자금액 <span className="num">500</span>家를<br/> <span className="num">
+                  { 
+                    this.getNowDate()
+                  }
+                  </span>에 구매했습니다.
+                  <button id="modalConfirm" className="btn-confirm" onClick={this.closeMessage}>확인</button>   
+                </Modal>
+              : this.props.join.status === "FAILURE" && this.props.join.err &&
+                <Modal>
+                  {this.props.join.err.response.data.message}
+                  <button id="modalConfirm" className="btn-confirm" onClick={this.closeMessage}>확인</button>
+                </Modal>
+            )
         }
       </>
     );

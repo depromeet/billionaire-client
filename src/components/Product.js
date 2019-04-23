@@ -17,12 +17,19 @@ class Product extends Component {
           :
           <ProductDetail
             getProductDetailRequest={this.props.getProductDetailRequest}
+            joinProductRequest={this.props.joinProductRequest}
+            join={this.props.join}
             id={match.params.id}
             data={this.props.productDetail.data}
+            goBack={this.props.history.goBack}
           />
         }
         {
-          products.data && !match.params.id &&
+          products.status === "SUCCESS" && products.data.length <= 0 &&
+          <div style={{'color': 'white'}}>매입 가능한 품목이 없습니다.</div>
+        }
+        {
+          products.status === "SUCCESS" && products.data.length > 0 && !match.params.id &&
           products.data.map((item) => (
             <article className="earning" key={item.id}>
               <h1 className="earning-title">{item.name}</h1>

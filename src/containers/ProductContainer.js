@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getProductDetailRequest: (id) => {
     dispatch(actions.getProductDetailRequest(id));
+  },
+  joinProductRequest: (id) => {
+    dispatch(actions.joinProductRequest(id));
   }
 });
 
