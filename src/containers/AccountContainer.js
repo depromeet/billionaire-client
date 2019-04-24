@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
   accounts: state.accountReducer.accounts, 
+  transactions: state.accountReducer.transactions,
   me: state.authReducer.me,
   ranking: state.rankingReducer.ranking
 });

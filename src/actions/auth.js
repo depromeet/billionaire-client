@@ -83,7 +83,38 @@ export const getMeRequest = () => (dispatch, getState) => {
     }
   }).then((response) => {
     dispatch(getMeSuccess(response));
+    dispatch(attendRequest());
   }).catch((err) => {
     dispatch(getMeFailure(err));
+  })
+}
+
+export const attendWaiting = () => ({
+  type: types.ATTEND_WAITING,
+});
+
+export const attendSuccess = (response) => ({
+  type: types.ATTEND_SUCCESS,
+  response,
+});
+
+export const attendFailure = (err) => ({
+  type: types.ATTEND_FAILURE,
+  err,
+});
+
+export const attendRequest = () => (dispatch, getState) => {
+  const state = getState();
+  dispatch(attendWaiting());
+  return axios({
+    url: '/api/members/me/attend',
+    method: 'post',
+    headers: {
+      Authorization: `Bearer ${state.authReducer.auth.token}`,
+    }
+  }).then((response) => {
+    dispatch(attendSuccess(response));
+  }).catch((err) => {
+    dispatch(attendFailure(err));
   })
 }

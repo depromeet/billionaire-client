@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
@@ -8,10 +7,8 @@ class Header extends Component {
         {
           this.props.close ?
             <div className="header-previous" onClick={this.props.close}>뒤로가기</div>
-          : this.props.link ?
-            <Link to={this.props.link}>
-              <div className="header-previous">뒤로가기</div>
-            </Link>
+          : this.props.goBack ?
+            <div className="header-previous" onClick={this.props.goBack}>뒤로가기</div>
           : <div className="header-logo">로고</div>
         }
         <div className="header-menu">

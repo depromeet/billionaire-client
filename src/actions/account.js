@@ -28,3 +28,31 @@ export const getAccountRequest = () => (dispatch, getState) => {
     dispatch(getAccountFailure(err));
   })
 }
+
+export const getTransactionWaiting = () => ({
+  type: types.GET_TRANSACTION_WAITING,
+});
+
+export const getTransactionSuccess = (response) => ({
+  type: types.GET_TRANSACTION_SUCCESS,
+  response,
+});
+
+export const getTransactionFailure = (err) => ({
+  type: types.GET_TRANSACTION_FAILURE,
+  err,
+});
+
+export const getTransactionRequest = (id) => (dispatch, getState) => {
+  const state = getState();
+  dispatch(getAccountWaiting());
+  return axios.get(`/api/accounts/${id}/transactions`, {
+    headers: {
+      Authorization: `Bearer ${state.authReducer.auth.token}`,
+    }
+  }).then((response) => {
+    dispatch(getTransactionSuccess(response));
+  }).catch((err) => {
+    dispatch(getTransactionFailure(err));
+  })
+}

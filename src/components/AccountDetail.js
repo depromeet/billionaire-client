@@ -3,14 +3,19 @@ import { Redirect } from 'react-router-dom';
 import { Header } from 'components';
 
 class AccountDetail extends Component {
+  componentDidMount() {
+    this.props.getTransactionRequest(this.props.location.state.item.id);
+  }
+
   render() {
     const { item } = this.props.location.state;
+    const { data, status } = this.props.transactions;
     return (
       <>
         {
           item ?
           <>
-            <Header link="/account" />
+            <Header goBack={this.props.history.goBack} />
             <div className="account-detail">
               <section className={"account-item account-detail " + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account')}>
                 <h1 className="account-name">{ item.name }</h1>
@@ -25,57 +30,37 @@ class AccountDetail extends Component {
                   </div>
                 </span>
               </section>
-              <article className="transaction-history">
-                <time className="transaction-date num">4.2</time>
-                <ul className="transaction-list">
-                  <li className="transaction-item">
-                    <span className="transaction-info">미세먼지야 덤벼라</span>
-                    <time className="transaction-time subinfo num">16:58</time>
-                    <span className="transaction-amount"><span className="num">-500</span> 家</span>
-                    <span className="transaction-result subinfo"><span className="num">24,000</span> 家</span>
-                  </li>
-                </ul>
-              </article>
-              <article className="transaction-history">
-                <time className="transaction-date num">3.27</time>
-                <ul className="transaction-list">
-                  <li className="transaction-item">
-                    <span className="transaction-info">미세먼지야 덤벼라</span>
-                    <time className="transaction-time subinfo num">17:50</time>
-                    <span className="transaction-amount"><span className="num">-500</span> 家</span>
-                    <span className="transaction-result subinfo"><span className="num">24,500</span> 家</span>
-                  </li>
-                  <li className="transaction-item">
-                    <span className="transaction-info">미세먼지야 덤벼라</span>
-                    <time className="transaction-time subinfo num">17:43</time>
-                    <span className="transaction-amount"><span className="num">-500</span> 家</span>
-                    <span className="transaction-result subinfo"><span className="num">25,000</span> 家</span>
-                  </li>
-                </ul>
-              </article>
-              <article className="transaction-history">
-                <time className="transaction-date num">2.26</time>
-                <ul className="transaction-list">
-                  <li className="transaction-item">
-                    <span className="transaction-info">미세먼지야 덤벼라</span>
-                    <time className="transaction-time subinfo num">13:27</time>
-                    <span className="transaction-amount"><span className="num">-500</span> 家</span>
-                    <span className="transaction-result subinfo"><span className="num">25,500</span> 家</span>
-                  </li>
-                  <li className="transaction-item">
-                    <span className="transaction-info">미세먼지야 덤벼라</span>
-                    <time className="transaction-time subinfo num">13:00</time>
-                    <span className="transaction-amount"><span className="num">-500</span> 家</span>
-                    <span className="transaction-result subinfo"><span className="num">26,000</span> 家</span>
-                  </li>
-                </ul>
-              </article>
+              {
+                status === "SUCCESS" && data &&
+                  data.reverse().map((item, index) => {
+                    const date = new Date(item.dateTime);
+                    const dateText = `${date.getMonth() + 1}.${date.getDate()}`;
+                    const timeText = `${date.getHours()}:${date.getMinutes()}`;
+                    
+                    return (
+                      <article className="transaction-history" key={index}>
+                        <time className="transaction-date num">{dateText}</time>
+                        <ul className="transaction-list">
+                          <li className="transaction-item">
+                            <span className="transaction-info">
+                              {item.transactionClassify === "WITHDRAWAL" ? "지출" : "수입"}
+                            </span>
+                            <time className="transaction-time subinfo num">{timeText}</time>
+                            <span className="transaction-amount"><span className="num">
+                              { item.transactionClassify === "WITHDRAWAL" ? `-${item.amount}` : item.amount }
+                            </span> 家</span>
+                            <span className="transaction-result subinfo"><span className="num">{"000000"}</span> 家</span>
+                          </li>
+                        </ul>
+                      </article>
+                    )
+                  })
+              }
             </div>
           </>
           :
           <Redirect to="/account" /> 
         }
-        
       </>
     );
   }

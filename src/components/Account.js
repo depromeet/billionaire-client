@@ -66,7 +66,7 @@ class Account extends Component {
               </section>
               <ul className="account-list">
                 {
-                  this.props.accounts.data &&
+                  this.props.accounts.status === "SUCCESS" && this.props.accounts.data &&
                   this.props.accounts.data.map((item, index) => (
                     <li
                       className={'account-item ' + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account')}
