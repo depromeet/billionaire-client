@@ -36,7 +36,7 @@ class App extends Component {
         
         <div className="wrapper">
           { 
-            isModalOpened && attend.status === "SUCCESS" &&
+            isModalOpened && attend && attend.status === "SUCCESS" &&
             attend.data.status === 200 &&
             <Modal>
               출석하였습니다. (임시 Modal입니다 ^_^)

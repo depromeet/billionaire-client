@@ -35,7 +35,7 @@ class AccountDetail extends Component {
                   data.reverse().map((item, index) => {
                     const date = new Date(item.dateTime);
                     const dateText = `${date.getMonth() + 1}.${date.getDate()}`;
-                    const timeText = `${date.getHours()}:${date.getMinutes()}`;
+                    const timeText = `${date.getHours() < 10 ? '0' : ''}${date.getHours()}:${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}`;
                     
                     return (
                       <article className="transaction-history" key={index}>
