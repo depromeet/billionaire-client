@@ -27,6 +27,13 @@ export default function rankingReducer(state, action) {
         ...state,
         ranking: {
           status: 'SUCCESS',
+          // data: {
+          //   ...action.response.data,
+          //   member: {
+          //     ...action.response.data.member,
+          //     cho: Hangul.disassemble(action.response.data.member.name, true)
+          //   }
+          // }
           data: action.response.data,
         }
       }

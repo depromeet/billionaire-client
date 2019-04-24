@@ -77,11 +77,24 @@ class Ranking extends Component {
 
               <ul className="profile-list">
                 {
-                  (data && status === "SUCCESS") &&
-                  this.state.search ?
-                    data.filter(item => {
-                      return item.member.name.includes(this.state.search)
-                    }).map((item, index) => (
+                  ( status === "SUCCESS" && data ) &&
+                  (
+                    this.state.search ?
+                      data.filter(item => {
+                        if (item.member.cho.includes(this.state.search)) {
+                          return item.member.cho.includes(this.state.search);
+                        }
+                        return item.member.name.includes(this.state.search);
+                      }).map((item, index) => (
+                        <li key={index}>
+                          <div className="num list-num">{index + 1}</div>
+                          <img src={item.member.profileImageUrl} alt="" className="profile-img profile-list-img"/>
+                          <div className="profile-list-name">{item.member.name}</div>
+                          <div className="profile-list-account"><span className="num">{item.assetValue}</span> 家</div>
+                        </li>
+                      ))
+                    : 
+                    data.map((item, index) => (
                       <li key={index}>
                         <div className="num list-num">{index + 1}</div>
                         <img src={item.member.profileImageUrl} alt="" className="profile-img profile-list-img"/>
@@ -89,15 +102,7 @@ class Ranking extends Component {
                         <div className="profile-list-account"><span className="num">{item.assetValue}</span> 家</div>
                       </li>
                     ))
-                  : 
-                  data.map((item, index) => (
-                    <li key={index}>
-                      <div className="num list-num">{index + 1}</div>
-                      <img src={item.member.profileImageUrl} alt="" className="profile-img profile-list-img"/>
-                      <div className="profile-list-name">{item.member.name}</div>
-                      <div className="profile-list-account"><span className="num">{item.assetValue}</span> 家</div>
-                    </li>
-                  ))
+                  )
                 }
               </ul>
               <button className="btn btn-fixed btn-more"><span>나머지 순위 더보기</span></button>

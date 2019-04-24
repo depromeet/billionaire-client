@@ -56,7 +56,6 @@ class ProductDetail extends Component {
   componentDidMount () {
     const { getProductDetailRequest, id } = this.props;
     getProductDetailRequest(id);
-    console.log(this.getNowDate())
   }
 
   render() {
