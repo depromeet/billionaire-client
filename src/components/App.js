@@ -39,8 +39,8 @@ class App extends Component {
             isModalOpened && attend.status === "SUCCESS" &&
             attend.data.status === 200 &&
             <Modal>
-              출석하였습니다.
-              +{attend.data.response.point}家
+              출석하였습니다. (임시 Modal입니다 ^_^)
+              +{attend.data.data.response.point}家
               <button id="modalConfirm" className="btn-confirm" onClick={this.props.closeModal}>확인</button>
             </Modal>
           }

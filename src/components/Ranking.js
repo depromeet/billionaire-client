@@ -3,6 +3,16 @@ import { Header, RankingSaturday } from 'components';
 import 'styles/Ranking.scss';
 
 class Ranking extends Component {
+  state = {
+    search: '',
+  }
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
   componentDidMount () {
     this.props.getRankingRequest();
   }
@@ -57,11 +67,29 @@ class Ranking extends Component {
                 </section>
               }
              
-              <input type="text" className="search input-search" placeholder="이름 검색" />
+              <input type="text"
+                className="search input-search"
+                placeholder="이름 검색"
+                name="search"
+                value={this.state.search}
+                onChange={this.handleChange}
+              />
 
               <ul className="profile-list">
                 {
-                  (data && status === "SUCCESS") && 
+                  (data && status === "SUCCESS") &&
+                  this.state.search ?
+                    data.filter(item => {
+                      return item.member.name.includes(this.state.search)
+                    }).map((item, index) => (
+                      <li key={index}>
+                        <div className="num list-num">{index + 1}</div>
+                        <img src={item.member.profileImageUrl} alt="" className="profile-img profile-list-img"/>
+                        <div className="profile-list-name">{item.member.name}</div>
+                        <div className="profile-list-account"><span className="num">{item.assetValue}</span> 家</div>
+                      </li>
+                    ))
+                  : 
                   data.map((item, index) => (
                     <li key={index}>
                       <div className="num list-num">{index + 1}</div>
