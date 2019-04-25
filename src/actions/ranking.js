@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import axios from 'axios';
+import Hangul from 'hangul-js';
 
 export const getRankingWaiting = () => ({
   type: types.GET_RANKING_WAITING,
@@ -25,7 +26,26 @@ export const getRankingRequest = () => (dispatch, getState) => {
       Authorization: `Bearer ${state.authReducer.auth.token}`,
     }
   }).then((response) => {
-    dispatch(getRankingSuccess(response));
+    const data = response.data.map((item) => {
+      const disassembled = Hangul.disassemble(item.member.name, true)
+      const choseong = disassembled.reduce((acc, el) => {
+        el = el[0] ? el[0] : el;
+        return acc + el;
+      }, '');
+
+      return {
+        ...item,
+        member: {
+          ...item.member,
+          cho: choseong
+      }
+    }});
+    
+    const result = {
+      ...response,
+      data,
+    }
+    dispatch(getRankingSuccess(result));
   }).catch((err) => {
     dispatch(getRankingFailure(err));
   })
