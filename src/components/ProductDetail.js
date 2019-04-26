@@ -77,28 +77,45 @@ class ProductDetail extends Component {
               this.props.data &&
               <>
                 <article className="earning">
-                  <h1 className="earning-title">{this.props.data.name}</h1>
-                  <div className="earning-amount">
-                    <span className="earning-current num">116</span>
-                    <span className="earning-variation num raise">42</span>
+                  <div className="earning-info">
+                    <h1 className="earning-title sub1">{this.props.data.name}</h1>
+                    <div className="earning-amount">
+                      <span className="earning-current num">116</span>
+                      <span className="earning-variation num raise">42</span>
+                    </div>
                   </div>
                   <div className="earning-graph data-panel" style={{'height':'128px', 'background': '#19191b', 'padding':'26px'}}>그래프 위치</div>
                 </article>
+                
+                {/* 디자인 시안의 변경에 따라 그래프의 표시주기를 변경하는 버튼이 추가되었습니다. */}
+                <div className="graph-control">
+                  <button className="btn btn-graph">1일</button>
+                  <button className="btn btn-graph">1개월</button>
+                  <button className="btn btn-graph">6개월</button>
+                  <button className="btn btn-graph">1년</button>
+                </div>
                 <div className="terms">
-                  <div className="terms-title">기간</div>
+                  <div className="terms-title">투자금액</div>
+                  <div className="terms-content-medium terms-content-select">
+                    1만원
+                  </div>
+                  <button className="terms-select-item icon-down">옵션 더보기</button>
+                </div>
+                <div className="terms">
+                  <div className="terms-title verticaltop">기간</div>
                   <span className="terms-content-medium">일주일</span>
                 </div>
                 <div className="terms">
-                  <div className="terms-title">수익률</div>
-                  <span className="terms-content-medium">최대 <span className="num">200</span>%</span>
+                  <div className="terms-title verticaltop">수익률</div>
+                  <span className="terms-content-medium">최대 200%</span>
                 </div>
                 <div className="terms">
-                  <div className="terms-title">조건</div>
-                  <div className="terms-condition terms-content-medium">
+                  <div className="terms-title verticaltop">조건</div>
+                  <div className="terms-content-medium">
                     {this.props.data.description}
                   </div>
                 </div>
-                <button id="buyStock" className="btn btn-fixed btn-buy" onClick={this.toggleShowAgreement}><span>상품 구매하러 가즈아</span></button>
+                <button id="buyStock" className="btn btn-default btn-buy" onClick={this.toggleShowAgreement}><span>상품 구매하러 가즈아</span></button>
               </>
             }
           </>

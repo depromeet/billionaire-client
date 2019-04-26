@@ -30,7 +30,7 @@ class ProductAgreement extends Component {
           <div className="terms-title">만료일</div>
           <span className="terms-content-large"><span className="num">19.04.02</span></span>
         </div>
-        <button className="btn btn-fixed btn-agree" onClick={this.props.handleAgree}><span>모든 약관에 동의합니다.</span></button>
+        <button className="btn btn-default btn-agree" onClick={this.props.handleAgree}><span>모든 약관에 동의합니다.</span></button>
       </>
     );
   }
