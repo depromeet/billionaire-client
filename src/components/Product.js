@@ -1,41 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Chart from 'chart.js';
 import { Header, ProductDetail } from 'components';
 
 class Product extends Component {
-  // initGraph = (data) => {
-  //   console.log(data)
-  //   const ctx = document.getElementById('graph1').getContext('2d');
-  //   const graph = new Chart(ctx, {
-  //     type: 'line',
-  //     data: {
-  //       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  //       datasets: [
-  //         {
-  //           borderColor: '#ffdc6c', 
-  //           data: [10, 20, 30, 40, 50, 60],
-  //         }
-  //       ]
-  //     },
-  //     options: {
-  //       scales: {
-  //         xAxes: [{
-  //           type: 'category',
-  //           labels: ['January', 'February', 'March', 'April', 'May', 'June']
-  //         }]
-  //       }
-  //     }
-  //   });
-  // }
-
   componentDidMount () {
     this.props.getProductRequest();
-    this.props.getAirPollutionRequest().then(() => {
-      console.log('done');
-      // this.initGraph(this.props.airPollution.data);
-      // this.initGraph();
-    });
+    this.props.getAirPollutionRequest();
     this.props.getKakaotalkRequest();
     this.props.getDpmSessionRequest();
   }
@@ -62,7 +32,7 @@ class Product extends Component {
         }
         {
           products.status === "SUCCESS" && products.data.length > 0 && !match.params.id && 
-          products.data.map((item, index) => (
+          products.data.map((item) => (
             <article className="earning" key={item.id}>
               <div className="earning-info">
                 <h1 className="earning-title sub1">
@@ -74,9 +44,25 @@ class Product extends Component {
                 </div>
               </div>
               <div className="earning-graph data-panel">
-                // <canvas id={"graph" + index} style={{'width': '100%', 'height': '100%'}}>
-                  
-                // </canvas>
+                {
+                  this.props.airPollution.data &&
+                  item.rules[0].dataType === "NUMBER_OF_ATTENDEE" && 
+                  <svg
+                    width="100%" height="100%"
+                    style={{'transform': 'rotateY(180deg)'}}
+                  >
+                    <polyline
+                      points={
+                        this.props.airPollution.data.map((item, index) => {
+                          return (
+                            index * 20 + "," + item.number * 20
+                          )
+                        })
+                      }
+                      style={{'fill': 'none', 'stroke': '#ffdc6c', 'strokeWidth' :'1'}} 
+                    />  
+                  </svg>
+                }
               </div>
               <Link to={`/product/${item.id}`}>
                 <button id="buyStock" className="btn btn-detail btn-buy"><span>상품 상세 보러 가즈아</span></button>

@@ -14,6 +14,7 @@ const RankingSaturday = (props) => {
       </div>
       <section className="ranking">
         {
+          props.data &&
           props.data.map((item, index) => {
             if (index > 2) return <div key={index}></div>;
             else return (

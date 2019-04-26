@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
@@ -16,12 +17,16 @@ class Header extends Component {
           <span className="menubar menubar-middle"></span>
           <span className="menubar menubar-bottom"></span>
         </button> */}
-        <button type="button" className="header-product btn-menu">
-          <img src="/assets/icon-graph.svg" alt="상품 페이지로 가기"/>
-        </button>
-        <button type="button" className="header-account btn-menu">
-          <img src="/assets/icon-account.svg" alt="내 계좌보기"/>
-        </button>
+        <Link to="/product">
+          <button type="button" className="header-product btn-menu">
+            <img src="/assets/icon-graph.svg" alt="상품 페이지로 가기"/>
+          </button>
+        </Link>
+        <Link to="/account">
+          <button type="button" className="header-account btn-menu">
+            <img src="/assets/icon-account.svg" alt="내 계좌보기"/>
+          </button>
+        </Link>
         <nav></nav>
       </header>
     );

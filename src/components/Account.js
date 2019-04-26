@@ -87,7 +87,7 @@ class Account extends Component {
                   ))
                 }
                 <li className="account-item add-account">
-                  <button class="add-account-button"><span className="hidden">상품가입하기</span></button>
+                  <button className="add-account-button"><span className="hidden">상품가입하기</span></button>
                 </li>
               </ul>
             </div>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
-import { LoginContainer, DashboardContainer, 
-  AccountContainer, AccountDetailContainer, 
+import { LoginContainer, AccountContainer, AccountDetailContainer, 
   ProductContainer, RankingContainer } from 'containers';
-import { Transfer, Modal } from 'components';
+import { Modal } from 'components';
 import withModal from 'components/withModal';
 
 import 'styles/App.scss';
@@ -44,12 +43,10 @@ class App extends Component {
               <button id="modalConfirm" className="btn-confirm" onClick={this.props.closeModal}>확인</button>
             </Modal>
           }
-          <PrivateRoute path="/dashboard" component={DashboardContainer} auth={this.props.auth} />
           <PrivateRoute exact path="/account" component={AccountContainer} auth={this.props.auth} />
           <PrivateRoute path="/account/detail" component={AccountDetailContainer} auth={this.props.auth} />
           <PrivateRoute exact path="/product" component={ProductContainer} auth={this.props.auth} />
           <PrivateRoute path="/product/:id" component={ProductContainer} auth={this.props.auth} />
-          <PrivateRoute path="/transfer" component={Transfer} auth={this.props.auth} />
           <PrivateRoute path="/ranking" component={RankingContainer} auth={this.props.auth} />
         </div>
       </BrowserRouter>
