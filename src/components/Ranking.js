@@ -105,7 +105,7 @@ class Ranking extends Component {
                   )
                 }
               </ul>
-              <button className="btn btn-fixed btn-more"><span>나머지 순위 더보기</span></button>
+              <button className="btn btn-fixed btn-default btn-more icon-down"><span>나머지 순위 더보기</span></button>
             </div>
           </>
         }

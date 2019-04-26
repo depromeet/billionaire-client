@@ -5,7 +5,7 @@ class Modal extends Component {
     return (
       <>
         <div id="mask" className="mask"></div>
-        <div id="modal" className="modal">
+        <div id="modal" className="modal modal-rectangle">
           { this.props.children }
         </div>
       </>

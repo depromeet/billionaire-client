@@ -69,7 +69,7 @@ class Account extends Component {
                   this.props.accounts.status === "SUCCESS" && this.props.accounts.data &&
                   this.props.accounts.data.map((item, index) => (
                     <li
-                      className={'account-item ' + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account')}
+                      className={'account-item ' + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account-1')}
                       onClick={() => this.handleSelectAccount(item)}
                       key={index}>
                       <span className="account-name">{item.name}</span>
@@ -79,13 +79,16 @@ class Account extends Component {
                           {item.accountNumber}
                           <button className="btn-copy" style={{ 'borderColor': '#5c594d' }}>복사하기
                             <div className="copybox copy-back"></div>
-                            <div className={"copybox copy-front " + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account')}></div>
+                            <div className={"copybox copy-front " + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account-1')}></div>
                           </button>
                         </div>
                       </span>
                     </li>
                   ))
                 }
+                <li className="account-item add-account">
+                  <button class="add-account-button">상품가입하기</button>
+                </li>
               </ul>
             </div>
           </>

@@ -1,24 +1,27 @@
 /* 공통 적용(리셋) */
-body{margin:0;font-family:"AppleSDGothicNeo";font-size:16px;font-style:normal;font-stretch:normal;color:#ffffff;background:#212121}
+body{margin:0;font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif;font-size:16px;font-style:normal;font-stretch:normal;color:#ffffff;background:#212121}
 h1{margin:0}
 ul{padding-left:0;margin:0}
 li{list-style:none}
-button{border:0;cursor:pointer}
+button{border:0;cursor:pointer;font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif}
 button:focus{outline:none}
 select:focus{outline:none}
 input[type=text]:focus{outline:none}
-.wrapper{padding:0 25px}
+.wrapper{padding:0 15px}
 .num {font-family:"Exo 2", sans-serif}
 .emphasis{font-size:28px;font-weight:bold} 
 .underline{line-height:16px;letter-spacing:0.5px;background: linear-gradient(0, #5227ff 20%, transparent 10%);box-shadow:inset 0 -3px #212121}
 .visible{display:block}
 .hidden{display:none}
+.btn{font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif}
+.verticaltop{vertical-align:top}
+.icon-down{width:16px;height:9px;color:transparent;background:url('/assets/icon-down.svg')}
+.icon-previous{float:left;width:11px;height:20px;color:transparent;background:url('/assets/icon-back.svg')}
 
 /* 헤더(로고와 메뉴버튼) */
 .header{padding:26px 0;position:relative}
 .header::after{content:'';clear:both;display:block}
 .header-logo{float:left;width:91px;height:29px;color:transparent;background:url('/assets/depgazua-bi.svg')}
-.header-previous{float:left;width:12px;height:24px;color:transparent;background:url('/assets/icon-down.svg')}
 .header-menu{position:absolute;top:50%;right:0;transform:translateY(-50%)}
 .btn-menu{background:transparent;color:transparent;width:24px;height:20px;overflow:hidden}
 .menubar{position:absolute;left:0;width:100%;height:2px;background:#fff;border-radius:5px;transition:all 0.5s}
@@ -55,14 +58,15 @@ input[type=text]:focus{outline:none}
 .profile-list li:last-child{margin-bottom:70px}
 .profile-list li>span{margin-right:8px}
 .profile-list-img{width:40px;height:40px;vertical-align:middle;margin-left:8px}
-.profile-list-name{display:inline-block;margin-left:15px}
+.profile-list-name{display:inline-block;margin-left:15px;font-weight:300}
 .profile-list-account{float:right;transform:translateY(50%)}
-.list-num{display:inline-block;width:16px;text-align:center}
+.list-num{display:inline-block;width:16px;text-align:left}
 
 /* 더보기 버튼 */
-.btn-fixed{position:fixed;height:60px;bottom:0;left:0;width:100%;}
-.btn-more{background:rgba(82,39,255,0.8);font-family:'AppleSDGothicNeo';font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
-.btn-more span::after{content:'';margin-left:5px;display:inline-block;width:10px;height:10px;border-bottom:1px solid #fff;border-right:1px solid #fff;transform:rotate(46deg) translateY(-22%);}
+.btn-default{height:60px;bottom:0;left:0;width:100%}
+.btn-fixed{position:fixed}
+.btn-more{background:rgba(82,39,255,0.8);font-size:20px;font-weight:300;font-style:normal;font-stretch:normal;line-height:20px;letter-spacing:normal;color:#ffffff;}
+// .icon-down span::after{content:'';margin-left:5px;display:inline-block;width:10px;height:10px;border-bottom:1px solid #fff;border-right:1px solid #fff;transform:rotate(46deg) translateY(-42%);}
 
 /* 02_main_3 */
 /* 랭킹3위 섹션 */
@@ -83,19 +87,23 @@ input[type=text]:focus{outline:none}
 /* 03_account_1 */
 /* 계좌 리스트(메인/서브) */
 .account-list{margin-top:25px}
-.account-item{width:100%;height:180px;position:relative;font-size:20px;margin:8px 0}
+.account-item{width:100%;height:140px;position:relative;font-size:20px;margin:8px 0}
 .account-number{font-weight:bold;white-space:nowrap}
 .account-info{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
 .account-name{color:#222222;position:absolute;top:11px;left:12px;font-size:13px;font-weight:300}
 .main-account{background:#5227ff}
 .main-number{color:#10024d}
-.sub-account{background:#ab9c6b}
+.sub-account-1{background:#00efad}
 .sub-number{color:#5c594d}
+.sub-account-2{background:#fa7b60}
+.sub-number{color:#5c594d}
+.add-account{background:#141414;text-align:center;cursor:pointer}
+.add-account-button{background:url('/assets/btn.svg');display:inline-block;width:60px;height:60px;color:transparent;margin:40px auto}
 
 /* 계좌번호 복사버튼 */
 .account-copy{display:inline-block}
-.btn-copy{width:14px;height:14px;overflow:hidden;vertical-align:middle;color:transparent;background:transparent;position:relative}
-.copybox{position:absolute;width:8px;height:8px;border:1px solid;border-color:inherit}
+.btn-copy{width:14px;height:14px;overflow:hidden;vertical-align:middle;color:transparent;background:transparent;position:relative;margin-left:8px}
+.copybox{position:absolute;width:8px;height:8px;border:1px solid;border-color:#222222}
 .copy-back{top:0;left:0}
 .copy-front{top:25%;right:0}
 
@@ -105,7 +113,7 @@ input[type=text]:focus{outline:none}
 .transaction-history{margin:24px 0 66px 0;width:100%}
 .transaction-history:after{content:'';clear:both;display:block}
 .transaction-date{width:10%;float:left;line-height:16px}
-.transaction-list{width:80%;float:right}
+.transaction-list{width:77%;float:right}
 .transaction-list li:nth-child(n+2){margin-top:66px}
 .transaction-item{position:relative}
 .transaction-info{width:auto;font-weight:300}
@@ -119,37 +127,48 @@ input[type=text]:focus{outline:none}
 .agreement{margin:10px 0}
 .agreement-title{font-size:26px;line-height:32px;font-weight:300}
 .agreement-content{height:329px;overflow:scroll;background:#19191b;color:#686868;font-size:14px;font-weight:300;padding:19px 25px;white-space:pre-line;line-height:23px}
-.data-panel{transform:translateX(-7%);width:100%;margin-top:10px;}
-.terms{margin:22px 0}
-.terms-title{width:60px;font-weight:300;color:#aaa;display:inline-block}
-.terms-content-large{font-size:20px;font-weight:bold;margin-left:29px}
-.terms-content-medium{font-weight:300;margin-left:29px}
+.data-panel{transform:translateX(-4%);width:97%;margin-top:10px;}
+.terms{margin:22px 0;color:#aaaaaa;position:relative}
+.terms-title{width:20%;font-weight:300;color:#616161;display:inline-block}
+.terms-content-large{font-size:20px;font-weight:bold;margin-left:4%;max-width:76%}
+.terms-content-medium{font-weight:300;margin-left:4%;max-width:76%;display:inline-block}
+.terms-content-select{display:inline-block;background:#2f2f2f;font-weight:normal;width:76%;height:40px;line-height:22px;box-sizing:border-box;padding:11px 10px 7px 10px;cursor:pointer}
+.terms-select-item{position:absolute;top:50%;right:10px;transform:translateY(-40%)}
 
 /* 약관 동의버튼 */
-.btn-agree{background:rgba(82,39,255,0.8);font-family:'AppleSDGothicNeo';font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
-.btn-agree span::before{content:'';margin-right:10px;display:inline-block;width:9px;height:15px;border-bottom:2px solid #fff;border-right:2px solid #fff;transform:rotate(46deg) translateY(-22%)}
+.btn-agree{background:#5227ff;font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
+.btn-agree span::before{content:'';margin-right:14px;display:inline-block;width:9px;height:15px;border-bottom:2px solid #fff;border-right:2px solid #fff;transform:rotate(46deg) translateY(-22%)}
 
 /* 04_product_2 */
 /* 투자상품 구매화면 */
 .terms-condition{float:right;width:calc(100% - 89px)}
 .earning{margin-top:12px;position:relative}
-.earning-title{font-weight:300;line-height:32px;display:inline-block}
-.earning-amount{position:absolute;top:32px;right:10px}
-.earning-current{font-size:28px;font-weight:bold;color:#f0f0f0;line-height:28px;}
+.earning-info{position:relative}
+.earning-title{font-weight:300;line-height:32px;width:55%;display:inline-block;padding-left:7px}
+.sub1{border-left:1px solid #00efad}
+.sub2{border-left:1px solid #fa7b60}
+.earning-amount{position:absolute;bottom:0;right:10px}
+.earning-current{font-size:28px;font-weight:bold;color:#f0f0f0;line-height:28px;padding-right:8px}
 .earning-variation{font-size:14px;font-weight:bold;line-height:15px;}
 .earning-graph{}
+.graph-control{margin:12px 0}
+.graph-control:last-child{margin-right:0}
+.btn-graph{height:40px;background:#2f2f2f;padding:11px 0 7px 0;font-size:16px;line-height:22px;color:#fff;margin-right:4%;width:22%}
+.btn-graph:last-child {margin-right:0}
 .raise{color:#5a7eff}
 .raise::after{content:'';background:no-repeat center url('/assets/raise-triangle.svg');width:10px;height:8px;display:inline-block;position:absolute;bottom:6px;margin-left:1px}
 .down{color:#ff5a5a}
 .down::after{content:'';background:no-repeat center url('/assets/down-triangle.svg');width:10px;height:8px;display:inline-block;position:absolute;bottom:6px;margin-left:1px}
 
 /* 구매버튼 */
-.btn-buy{background:rgba(82,39,255,0.8);font-family:'AppleSDGothicNeo';font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
+.btn-buy{height:60px;bottom:0;left:0;width:100%;background:#5227ff;font-size:20px;line-height:20px;font-weight:300;font-style:normal;font-stretch:normal;letter-spacing:normal;color:#ffffff;margin:20px 0}
 
 /* 04_product_4 */
 /* 모달과 마스크 */
-.mask{position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.7)}
-.modal{width:calc(100% - 50px);height:210px;z-index:999;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#212121;padding:46px 0;text-align:center;box-sizing:border-box;font-size:20px;font-weight:300}
+.mask{position:absolute;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.7);z-index:998}
+.modal{z-index:999;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.modal-rectangle{width:calc(100% - 50px);height:210px;background:#212121;padding:46px 0;text-align:center;box-sizing:border-box;font-size:20px;font-weight:300}
+.modal-circle{width:210px;height:210px;background:rgba(82,39,255,0.9)}
 .btn-confirm{position:absolute;bottom:0;left:0;height:60px;background:#5227ff;width:100%;font-size:16px;font-weight:300;line-height:20px;color:#ffffff}
 
 /* 04_product_1_d */
