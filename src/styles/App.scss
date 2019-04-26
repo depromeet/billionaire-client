@@ -7,7 +7,7 @@ button{border:0;cursor:pointer;font-family:"Apple SD Gothic Neo",'Noto Sans KR',
 button:focus{outline:none}
 select:focus{outline:none}
 input[type=text]:focus{outline:none}
-.wrapper{padding:0 15px}
+.wrapper{padding:0 15px;overflow:hidden}
 .num {font-family:"Exo 2", sans-serif}
 .emphasis{font-size:28px;font-weight:bold} 
 .underline{line-height:16px;letter-spacing:0.5px;background: linear-gradient(0, #5227ff 20%, transparent 10%);box-shadow:inset 0 -3px #212121}
