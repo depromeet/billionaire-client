@@ -27,7 +27,7 @@ class Ranking extends Component {
           (new Date().getDay() === 6) ?
             <RankingSaturday data={data} />
           :
-          <>
+          (
             <div className="selection">금주의 어떤 이가<br/>
               디프가문의
               <div className="selection-select1">
@@ -37,6 +37,9 @@ class Ranking extends Component {
               <br/>
               차지할 것인가.
             </div>
+          )
+        }
+          <>
             <div className="ranking">
               {
                 me && 

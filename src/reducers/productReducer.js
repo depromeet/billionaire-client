@@ -11,7 +11,19 @@ const initialState = {
   },
   join: {
     status: null,
-  }
+  },
+  airPollution: {
+    status: null,
+    data: null,
+  },
+  dpmSession: {
+    status: null,
+    data: null,
+  },
+  kakaotalk: {
+    status: null,
+    data: null,
+  },
 };
 
 export default function productReducer(state, action) {
@@ -93,6 +105,84 @@ export default function productReducer(state, action) {
       return state = {
         ...state,
         join: {
+          status: 'FAILURE',
+          err: action.err,
+        },
+      }
+    
+    case types.GET_AIR_POLLUTION_WAITING:
+      return state = {
+        ...state,
+        airPollution: {
+          status: 'WAITING',
+        },
+      }
+    
+    case types.GET_AIR_POLLUTION_SUCCESS:
+      return state = {
+        ...state,
+        airPollution: {
+          status: 'SUCCESS',
+          data: action.response.data.response,
+        }
+      }
+
+    case types.GET_AIR_POLLUTION_FAILURE:
+      return state = {
+        ...state,
+        airPollution: {
+          status: 'FAILURE',
+          err: action.err,
+        },
+      }
+
+    case types.GET_DPM_SESSION_WAITING:
+      return state = {
+        ...state,
+        dpmSession: {
+          status: 'WAITING',
+        },
+      }
+    
+    case types.GET_DPM_SESSION_SUCCESS:
+      return state = {
+        ...state,
+        dpmSession: {
+          status: 'SUCCESS',
+          data: action.response.data.response,
+        }
+      }
+
+    case types.GET_DPM_SESSION_FAILURE:
+      return state = {
+        ...state,
+        dpmSession: {
+          status: 'FAILURE',
+          err: action.err,
+        },
+      }
+
+    case types.GET_KAKAOTALK_WAITING:
+      return state = {
+        ...state,
+        kakaotalk: {
+          status: 'WAITING',
+        },
+      }
+    
+    case types.GET_KAKAOTALK_SUCCESS:
+      return state = {
+        ...state,
+        kakaotalk: {
+          status: 'SUCCESS',
+          data: action.response.data.response,
+        }
+      }
+
+    case types.GET_KAKAOTALK_FAILURE:
+      return state = {
+        ...state,
+        kakaotalk: {
           status: 'FAILURE',
           err: action.err,
         },

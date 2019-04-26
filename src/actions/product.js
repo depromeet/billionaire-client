@@ -89,6 +89,100 @@ export const joinProductRequest = (id) => (dispatch, getState) => {
     dispatch(joinProductSuccess(response));
   }).catch((err) => {
     dispatch(joinProductFailure(err));
+  });
+}
+
+export const getAirPollutionWaiting = () => ({
+  type: types.GET_AIR_POLLUTION_WAITING,
+});
+
+export const getAirPollutionSuccess = (response) => ({
+  type: types.GET_AIR_POLLUTION_SUCCESS,
+  response,
+});
+
+export const getAirPollutionFailure = (err) => ({
+  type: types.GET_AIR_POLLUTION_FAILURE,
+  err,
+});
+
+export const getAirPollutionRequest = () => (dispatch, getState) => {
+  const state = getState();
+  return new Promise((resolve, reject) => {
+    dispatch(getAirPollutionWaiting());
+    return axios({
+      method: 'get',
+      url: `/api/graphs/airpollution`,
+      headers: {
+        Authorization: `Bearer ${state.authReducer.auth.token}`,
+      }
+    }).then((response) => {
+      dispatch(getAirPollutionSuccess(response));
+      console.log('done-1');
+      resolve();
+    }).catch((err) => {
+      dispatch(getAirPollutionFailure(err));
+      reject();
+    });
+  });
+}
+
+export const getKakaotalkWaiting = () => ({
+  type: types.GET_KAKAOTALK_WAITING,
+});
+
+export const getKakaotalkSuccess = (response) => ({
+  type: types.GET_KAKAOTALK_SUCCESS,
+  response,
+});
+
+export const getKakaotalkFailure = (err) => ({
+  type: types.GET_KAKAOTALK_FAILURE,
+  err,
+});
+
+export const getKakaotalkRequest = () => (dispatch, getState) => {
+  const state = getState();
+  dispatch(getKakaotalkWaiting());
+  return axios({
+    method: 'get',
+    url: `/api/graphs/kakaotalk`,
+    headers: {
+      Authorization: `Bearer ${state.authReducer.auth.token}`,
+    }
+  }).then((response) => {
+    dispatch(getKakaotalkSuccess(response));
+  }).catch((err) => {
+    dispatch(getKakaotalkFailure(err));
   })
 }
 
+export const getDpmSessionWaiting = () => ({
+  type: types.GET_DPM_SESSION_WAITING,
+});
+
+export const getDpmSessionSuccess = (response) => ({
+  type: types.GET_DPM_SESSION_SUCCESS,
+  response,
+});
+
+export const getDpmSessionFailure = (err) => ({
+  type: types.GET_DPM_SESSION_FAILURE,
+  err,
+});
+
+export const getDpmSessionRequest = () => (dispatch, getState) => {
+  const state = getState();
+  dispatch(getDpmSessionWaiting());
+  return axios({
+    method: 'get',
+    url: `/api/graphs/session`,
+    headers: {
+      Authorization: `Bearer ${state.authReducer.auth.token}`,
+    }
+  }).then((response) => {
+    dispatch(getDpmSessionSuccess(response));
+  }).catch((err) => {
+    dispatch(getDpmSessionFailure(err));
+  })
+}

@@ -14,13 +14,22 @@ const RankingSaturday = (props) => {
       </div>
       <section className="ranking">
         {
-          props.data.map((item, index) => (
-            <div className={"ranking-profile " + (index + 1 === 1 && 'ranking-1st')} key={index}>
-              <img src={item.member.profileImageUrl} className="profile-img" width="100" alt={`${index + 1}위 ${item.member.name} 사진`} />
-              <div className="ranking-word">
-              <span className="ranking-num num">{index + 1}</span>위</div>
-            </div>
-          ))
+          props.data.map((item, index) => {
+            if (index > 2) return <div key={index}></div>;
+            else return (
+              <div className={
+                "ranking-profile " + 
+                (index + 1 === 1 ? 'ranking-1st'
+                : index + 1 === 2 ? 'ranking-2nd'
+                : index + 1 === 3 ? 'ranking-3rd' : '')
+                }
+                key={index}>
+                <img src={item.member.profileImageUrl} className="profile-img" width="100" alt={`${index + 1}위 ${item.member.name} 사진`} />
+                <div className="ranking-word">
+                <span className="ranking-num num">{index + 1}</span>위</div>
+              </div>
+            )
+          })
         }
       </section>
     </>
