@@ -49,7 +49,7 @@ class AccountDetail extends Component {
                             <span className="transaction-amount"><span className="num">
                               { item.transactionClassify === "WITHDRAWAL" ? `-${item.amount}` : item.amount }
                             </span> 家</span>
-                            <span className="transaction-result subinfo"><span className="num">{"000000"}</span> 家</span>
+                            <span className="transaction-result subinfo"><span className="num">{item.balance}</span> 家</span>
                           </li>
                         </ul>
                       </article>
