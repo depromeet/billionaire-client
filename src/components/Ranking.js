@@ -47,7 +47,7 @@ class Ranking extends Component {
                     <div>{me.name}</div>
                   </div>
                   <div className="profile-account" style={{'fontWeight': '300'}}>
-                    <div>현재 <span className="emphasis underline num">
+                    <div className="profile-ranking">현재 <span className="emphasis underline num">
                     {
                       data && 
                       data.findIndex(item => (
@@ -90,7 +90,7 @@ class Ranking extends Component {
                           <div className="num list-num">{index + 1}</div>
                           <img src={item.member.profileImageUrl} alt="" className="profile-img profile-list-img"/>
                           <div className="profile-list-name">{item.member.name}</div>
-                          <div className="profile-list-account"><span className="num">{item.assetValue}</span> 家</div>
+                          <div className="profile-list-account"><span className="num">{item.assetValue}</span> <span className="opacity">家</span></div>
                         </li>
                       ))
                     : 
@@ -99,7 +99,7 @@ class Ranking extends Component {
                         <div className="num list-num">{index + 1}</div>
                         <img src={item.member.profileImageUrl} alt="" className="profile-img profile-list-img"/>
                         <div className="profile-list-name">{item.member.name}</div>
-                        <div className="profile-list-account"><span className="num">{item.assetValue}</span> 家</div>
+                        <div className="profile-list-account"><span className="num">{item.assetValue}</span> <span className="opacity">家</span></div>
                       </li>
                     ))
                   )

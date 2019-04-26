@@ -17,6 +17,7 @@ input[type=text]:focus{outline:none}
 .verticaltop{vertical-align:top}
 .icon-down{width:16px;height:9px;background:url('/assets/icon-down.svg')}
 .icon-previous{float:left;width:11px;height:20px;background:url('/assets/icon-back.svg')}
+.opacity{opacity:0.6}
 
 /* 헤더(로고와 메뉴버튼) */
 .header{padding:26px 0;position:relative}
@@ -24,7 +25,7 @@ input[type=text]:focus{outline:none}
 .header-logo{float:left;width:91px;height:29px;background:url('/assets/depgazua-bi.svg')}
 .header-menu{position:absolute;top:50%;right:0;transform:translateY(-50%)}
 .btn-menu{background:transparent;width:24px;height:20px;overflow:hidden}
-.menubar{position:absolute;left:0;width:100%;height:2px;background:#fff;border-radius:5px;transition:all 0.5s}
+.menubar{position:absolute;left:0;width:100%;height:2px;background:#d8d8d8;border-radius:5px;transition:all 0.5s}
 .menubar-top{top:0}
 .menubar-middle{top:50%;transform:translateY(-25%)}
 .menubar-bottom{bottom:0}
@@ -43,6 +44,7 @@ input[type=text]:focus{outline:none}
 .profile img {float:left;width:60px;height:60px}
 .profile-info{width:84px;position:absolute;left:70px;bottom:0;line-height:1.44;letter-spacing:0.1px}
 .profile-account{text-align:right;line-height:16px;position:absolute;right:0;bottom:0}
+.profile-ranking{margin-bottom:6px}
 
 /* 검색창 */
 .search {margin-top:44px}
@@ -58,19 +60,20 @@ input[type=text]:focus{outline:none}
 .profile-list li:last-child{margin-bottom:70px}
 .profile-list li>span{margin-right:8px}
 .profile-list-img{width:40px;height:40px;vertical-align:middle;margin-left:8px}
-.profile-list-name{display:inline-block;margin-left:15px;font-weight:300}
+.profile-list-name{display:inline-block;margin-left:15px;font-weight:400}
 .profile-list-account{float:right;transform:translateY(50%)}
 .list-num{display:inline-block;width:16px;text-align:left}
 
 /* 더보기 버튼 */
 .btn-default{height:60px;bottom:0;left:0;width:100%}
 .btn-fixed{position:fixed}
-.btn-more{background:rgba(82,39,255,0.8);font-size:20px;font-weight:300;font-style:normal;font-stretch:normal;line-height:20px;letter-spacing:normal;color:#ffffff;}
+.btn-more{background:rgba(82,39,255,0.8);font-size:20px;font-weight:400;font-style:normal;font-stretch:normal;line-height:20px;letter-spacing:normal;color:#ffffff;}
 // .icon-down span::after{content:'';margin-left:5px;display:inline-block;width:10px;height:10px;border-bottom:1px solid #fff;border-right:1px solid #fff;transform:rotate(46deg) translateY(-42%);}
 
 /* 02_main_3 */
 /* 랭킹3위 섹션 */
 .ranking{margin:30px 0 23px 0;height:212px;position:relative}
+.ranking::after{content:"";clear:both;display:block;}
 .ranking-profile{position:absolute;font-weight:bold}
 .ranking-1st{top:40px;left:50%;transform:translateX(-50%);color:#ffdc6c}
 .ranking-1st::before{content:'';display:block;width:24px;height:24px;background:no-repeat center / 100% url('/assets/1st-invalid-name.png');position:absolute;top:-11px;left:50%;transform:translateX(-50%);}
@@ -136,7 +139,7 @@ input[type=text]:focus{outline:none}
 .terms-select-item{position:absolute;top:50%;right:10px;transform:translateY(-40%)}
 
 /* 약관 동의버튼 */
-.btn-agree{background:#5227ff;font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
+.btn-agree{background:#5227ff;font-size:16px;font-weight:400;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
 .btn-agree span::before{content:'';margin-right:14px;display:inline-block;width:9px;height:15px;border-bottom:2px solid #fff;border-right:2px solid #fff;transform:rotate(46deg) translateY(-22%)}
 
 /* 04_product_2 */
@@ -144,9 +147,10 @@ input[type=text]:focus{outline:none}
 .terms-condition{float:right;width:calc(100% - 89px)}
 .earning{margin-top:12px;position:relative}
 .earning-info{position:relative}
-.earning-title{font-weight:300;line-height:32px;width:55%;display:inline-block;padding-left:7px}
+.earning-title{font-weight:300;width:280px;line-height:32px;display:inline-block;padding-left:7px}
+.earning-title-part{width:210px;display:inline-block}
 .sub1{border-left:1px solid #00efad}
-.sub2{border-left:1px solid #fa7b60}
+.sub2{border-left:1px solid #251c1a}
 .earning-amount{position:absolute;bottom:0;right:10px}
 .earning-current{font-size:28px;font-weight:bold;color:#f0f0f0;line-height:28px;padding-right:8px}
 .earning-variation{font-size:14px;font-weight:bold;line-height:15px;}
