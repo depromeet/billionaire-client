@@ -84,7 +84,7 @@ class ProductDetail extends Component {
                       <span className="earning-variation num raise">42</span>
                     </div>
                   </div>
-                  <div className="earning-graph data-panel" style={{'height':'128px', 'background': '#19191b', 'padding':'26px'}}>그래프 위치</div>
+                  <div className="earning-graph data-panel">그래프 위치</div>
                 </article>
                 
                 {/* 디자인 시안의 변경에 따라 그래프의 표시주기를 변경하는 버튼이 추가되었습니다. */}
