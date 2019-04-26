@@ -13,11 +13,23 @@ input[type=text]:focus{outline:none}
 .underline{line-height:16px;letter-spacing:0.5px;background: linear-gradient(0, #5227ff 20%, transparent 10%);box-shadow:inset 0 -3px #212121}
 .visible{visibility:visible}
 .hidden{visibility:hidden}
-.btn{font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif}
+.btn{font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif;text-align:center}
 .verticaltop{vertical-align:top}
 .icon-down{width:16px;height:9px;background:url('/assets/icon-down.svg')}
 .icon-previous{float:left;width:11px;height:20px;background:url('/assets/icon-back.svg')}
+.icon-kakao{width:26px;vertical-align:text-top;margin-right:6px}
 .opacity{opacity:0.6}
+
+/* 로그인 */
+.login{position:absolute;background:#161616;position:absolute;top:0;bottom:0;right:0;left:0}
+.login-logo{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);width:55%;z-index:998}
+.login-bg-wave{position:absolute;bottom:60px;width:110%;z-index:996;transform:translateX(-7%);}
+.login-bg-planet{position:absolute;bottom:30%;left:-90px;width:70%;z-index:997}
+.login-bg-star{position:absolute;top:0;width:110%;z-index:995;transform:translate(-6%,-4%)}
+.login-bg-planet1{}
+.login-bg-meteor{}
+.login-bg-human{}
+.login-kakao{position:absolute;font-size:20px;bottom:0;width:100%;height:60px;background:#ffec1f;color:#411e0c;font-weight:500;z-index:999}
 
 /* 헤더(로고와 메뉴버튼) */
 .header{padding:26px 0;position:relative}
@@ -91,15 +103,14 @@ input[type=text]:focus{outline:none}
 /* 계좌 리스트(메인/서브) */
 .account-list{margin-top:25px}
 .account-item{width:100%;height:140px;position:relative;font-size:20px;margin:8px 0}
-.account-number{font-weight:bold;white-space:nowrap}
+.account-number{white-space:nowrap;font-size:19px}
 .account-info{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
-.account-name{color:#222222;position:absolute;top:11px;left:12px;font-size:13px;font-weight:300}
+.account-name{color:#222222;position:absolute;top:11px;left:12px;font-size:13px;font-weight:400;opacity:0.7}
 .main-account{background:#5227ff}
 .main-number{color:#10024d}
 .sub-account-1{background:#00efad}
-.sub-number{color:#5c594d}
+.sub-number{color:#222222;opacity:0.6}
 .sub-account-2{background:#fa7b60}
-.sub-number{color:#5c594d}
 .add-account{background:#141414;text-align:center;cursor:pointer}
 .add-account-button{background:url('/assets/btn.svg');display:inline-block;width:60px;height:60px;margin:40px auto}
 

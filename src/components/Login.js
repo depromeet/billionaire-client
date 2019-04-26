@@ -15,8 +15,14 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-        로그인 페이지
-        <button onClick={this.login}>로그인 (예금 페이지로)</button>
+        <img className="login-logo" src="assets/login/logo_login_@3x.png"/>
+        <img className="login-bg-wave" src="/assets/login/wave_login_@3x.png"/>
+        <img className="login-bg-planet" src="assets/login/smallplanet_login_@3x.png"/>
+        <img className="login-bg-star" src="assets/login/dot_login_@3x.png"/>
+        <img className="login-bg-planet1" />
+        <img className="login-bg-meteor" />
+        <img className="login-bg-human" />
+        <button onClick={this.login} className="btn login-kakao"><img className="icon-kakao" src="/assets/icon.svg"/>카카오 계정으로 로그인</button>
         {
           this.props.auth.status === 'SUCCESS' &&
           <Redirect to="/dashboard" />
