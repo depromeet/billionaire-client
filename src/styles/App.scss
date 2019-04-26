@@ -1,30 +1,44 @@
 /* 공통 적용(리셋) */
-body{margin:0;font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif;font-size:16px;font-style:normal;font-stretch:normal;color:#ffffff;background:#212121}
+body{margin:0;font-size:16px;font-style:normal;font-stretch:normal;color:#ffffff;background:#212121}
 h1{margin:0}
 ul{padding-left:0;margin:0}
 li{list-style:none}
-button{border:0;cursor:pointer;font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif}
+button{border:0;cursor:pointer;font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif;padding:0}
 button:focus{outline:none}
 select:focus{outline:none}
 input[type=text]:focus{outline:none}
-.wrapper{padding:0 15px}
+.wrapper{padding:0 15px;overflow:hidden}
 .num {font-family:"Exo 2", sans-serif}
 .emphasis{font-size:28px;font-weight:bold} 
 .underline{line-height:16px;letter-spacing:0.5px;background: linear-gradient(0, #5227ff 20%, transparent 10%);box-shadow:inset 0 -3px #212121}
-.visible{display:block}
-.hidden{display:none}
-.btn{font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif}
+.visible{visibility:visible}
+.hidden{visibility:hidden}
+.btn{font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif;text-align:center}
 .verticaltop{vertical-align:top}
-.icon-down{width:16px;height:9px;color:transparent;background:url('/assets/icon-down.svg')}
-.icon-previous{float:left;width:11px;height:20px;color:transparent;background:url('/assets/icon-back.svg')}
+.icon-down{width:16px;height:9px;background:url('/assets/icon-down.svg')}
+.icon-previous{float:left;width:11px;height:20px;background:url('/assets/icon-back.svg')}
+.icon-kakao{width:22px;vertical-align:sub;margin-right:6px}
+.opacity{opacity:0.6}
+
+/* 로그인 */
+.login{position:absolute;background:#161616;position:absolute;top:0;bottom:0;right:0;left:0;overflow:hidden}
+.login-logo{position:absolute;bottom:110px;left:50%;transform:translateX(-50%);width:55%;z-index:998}
+.login-bg-wave{position:absolute;bottom:0;width:120%;z-index:996;transform:translateX(-7%);}
+.login-bg-planet{position:absolute;bottom:30%;left:-90px;width:70%;z-index:997}
+.login-bg-star{position:absolute;top:0;width:110%;z-index:995;transform:translate(-6%,-4%)}
+.login-bg-planet1{position:absolute;top:-78px;right:-90px;width:64%;z-index:997}
+.login-bg-meteor{position:absolute;top:0;width:100%;z-index:995}
+.login-bg-human{position:absolute;top:9%;width:100%;z-index:999}
+.login-kakao{position:absolute;font-size:16px;line-height:20px;bottom:0;width:100%;height:60px;background:#ffec1f;color:#411e0c;font-weight:500;z-index:999}
 
 /* 헤더(로고와 메뉴버튼) */
 .header{padding:26px 0;position:relative}
 .header::after{content:'';clear:both;display:block}
-.header-logo{float:left;width:91px;height:29px;color:transparent;background:url('/assets/depgazua-bi.svg')}
-.header-menu{position:absolute;top:50%;right:0;transform:translateY(-50%)}
-.btn-menu{background:transparent;color:transparent;width:24px;height:20px;overflow:hidden}
-.menubar{position:absolute;left:0;width:100%;height:2px;background:#fff;border-radius:5px;transition:all 0.5s}
+.header-logo{float:left;width:91px;height:29px;background:url('/assets/depgazua-bi.svg')}
+.header-product{position:absolute;top:50%;right:0;transform:translateY(-50%)}
+.header-account{position:absolute;top:50%;right:42px;transform:translateY(-50%)}
+.btn-menu{background:transparent;width:22px;height:22px;overflow:hidden}
+.menubar{position:absolute;left:0;width:100%;height:2px;background:#d8d8d8;border-radius:5px;transition:all 0.5s}
 .menubar-top{top:0}
 .menubar-middle{top:50%;transform:translateY(-25%)}
 .menubar-bottom{bottom:0}
@@ -43,6 +57,7 @@ input[type=text]:focus{outline:none}
 .profile img {float:left;width:60px;height:60px}
 .profile-info{width:84px;position:absolute;left:70px;bottom:0;line-height:1.44;letter-spacing:0.1px}
 .profile-account{text-align:right;line-height:16px;position:absolute;right:0;bottom:0}
+.profile-ranking{margin-bottom:6px}
 
 /* 검색창 */
 .search {margin-top:44px}
@@ -58,19 +73,20 @@ input[type=text]:focus{outline:none}
 .profile-list li:last-child{margin-bottom:70px}
 .profile-list li>span{margin-right:8px}
 .profile-list-img{width:40px;height:40px;vertical-align:middle;margin-left:8px}
-.profile-list-name{display:inline-block;margin-left:15px;font-weight:300}
+.profile-list-name{display:inline-block;margin-left:15px;font-weight:400}
 .profile-list-account{float:right;transform:translateY(50%)}
 .list-num{display:inline-block;width:16px;text-align:left}
 
 /* 더보기 버튼 */
-.btn-default{height:60px;bottom:0;left:0;width:100%}
+.btn-default{height:60px;bottom:0;left:0;font-size:18px;width:100%}
 .btn-fixed{position:fixed}
-.btn-more{background:rgba(82,39,255,0.8);font-size:20px;font-weight:300;font-style:normal;font-stretch:normal;line-height:20px;letter-spacing:normal;color:#ffffff;}
+.btn-more{background:rgba(82,39,255,0.8);font-weight:400;font-style:normal;font-stretch:normal;line-height:20px;letter-spacing:normal;color:#ffffff;}
 // .icon-down span::after{content:'';margin-left:5px;display:inline-block;width:10px;height:10px;border-bottom:1px solid #fff;border-right:1px solid #fff;transform:rotate(46deg) translateY(-42%);}
 
 /* 02_main_3 */
 /* 랭킹3위 섹션 */
 .ranking{margin:30px 0 23px 0;height:212px;position:relative}
+.ranking::after{content:"";clear:both;display:block;}
 .ranking-profile{position:absolute;font-weight:bold}
 .ranking-1st{top:40px;left:50%;transform:translateX(-50%);color:#ffdc6c}
 .ranking-1st::before{content:'';display:block;width:24px;height:24px;background:no-repeat center / 100% url('/assets/1st-invalid-name.png');position:absolute;top:-11px;left:50%;transform:translateX(-50%);}
@@ -88,21 +104,20 @@ input[type=text]:focus{outline:none}
 /* 계좌 리스트(메인/서브) */
 .account-list{margin-top:25px}
 .account-item{width:100%;height:140px;position:relative;font-size:20px;margin:8px 0}
-.account-number{font-weight:bold;white-space:nowrap}
+.account-number{white-space:nowrap;font-size:19px}
 .account-info{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
-.account-name{color:#222222;position:absolute;top:11px;left:12px;font-size:13px;font-weight:300}
+.account-name{color:#222222;position:absolute;top:11px;left:12px;font-size:13px;font-weight:400;opacity:0.7}
 .main-account{background:#5227ff}
 .main-number{color:#10024d}
 .sub-account-1{background:#00efad}
-.sub-number{color:#5c594d}
+.sub-number{color:#222222;opacity:0.6}
 .sub-account-2{background:#fa7b60}
-.sub-number{color:#5c594d}
 .add-account{background:#141414;text-align:center;cursor:pointer}
-.add-account-button{background:url('/assets/btn.svg');display:inline-block;width:60px;height:60px;color:transparent;margin:40px auto}
+.add-account-button{background:url('/assets/btn.svg');display:inline-block;width:60px;height:60px;margin:40px auto}
 
 /* 계좌번호 복사버튼 */
 .account-copy{display:inline-block}
-.btn-copy{width:14px;height:14px;overflow:hidden;vertical-align:middle;color:transparent;background:transparent;position:relative;margin-left:8px}
+.btn-copy{width:14px;height:14px;overflow:hidden;vertical-align:middle;background:transparent;position:relative;margin-left:8px}
 .copybox{position:absolute;width:8px;height:8px;border:1px solid;border-color:#222222}
 .copy-back{top:0;left:0}
 .copy-front{top:25%;right:0}
@@ -136,7 +151,7 @@ input[type=text]:focus{outline:none}
 .terms-select-item{position:absolute;top:50%;right:10px;transform:translateY(-40%)}
 
 /* 약관 동의버튼 */
-.btn-agree{background:#5227ff;font-size:16px;font-weight:300;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
+.btn-agree{background:#5227ff;font-size:16px;font-weight:400;font-style:normal;font-stretch:normal;line-height:1.25;letter-spacing:normal;color:#ffffff;}
 .btn-agree span::before{content:'';margin-right:14px;display:inline-block;width:9px;height:15px;border-bottom:2px solid #fff;border-right:2px solid #fff;transform:rotate(46deg) translateY(-22%)}
 
 /* 04_product_2 */
@@ -144,9 +159,10 @@ input[type=text]:focus{outline:none}
 .terms-condition{float:right;width:calc(100% - 89px)}
 .earning{margin-top:12px;position:relative}
 .earning-info{position:relative}
-.earning-title{font-weight:300;line-height:32px;width:55%;display:inline-block;padding-left:7px}
+.earning-title{font-weight:300;width:280px;line-height:32px;display:inline-block;padding-left:7px}
+.earning-title-part{width:210px;display:inline-block}
 .sub1{border-left:1px solid #00efad}
-.sub2{border-left:1px solid #fa7b60}
+.sub2{border-left:1px solid #251c1a}
 .earning-amount{position:absolute;bottom:0;right:10px}
 .earning-current{font-size:28px;font-weight:bold;color:#f0f0f0;line-height:28px;padding-right:8px}
 .earning-variation{font-size:14px;font-weight:bold;line-height:15px;}

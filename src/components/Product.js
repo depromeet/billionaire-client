@@ -65,7 +65,12 @@ class Product extends Component {
           products.data.map((item, index) => (
             <article className="earning" key={item.id}>
               <div className="earning-info">
-                <h1 className="earning-title sub1">{item.name}</h1>
+                <h1 className="earning-title sub1">
+                  {/* 상품명1 */}
+                  <span className="earning-title-part">{item.name}</span>
+                  {/* 상품명2 */}
+                  <span className="earning-title-part">{item.name}</span>
+                </h1>
                 <div className="earning-amount">
                   <span className="earning-current num">116</span>
                   <span className="earning-variation num raise">42</span>

@@ -17,7 +17,7 @@ class AccountDetail extends Component {
           <>
             <Header goBack={this.props.history.goBack} />
             <div className="account-detail">
-              <section className={"account-item account-detail " + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account')}>
+              <section className={"account-item account-detail " + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account-1')}>
                 <h1 className="account-name">{ item.name }</h1>
                 <span className="account-info">
                   <span className="num emphasis">{ item.balance }</span> 家
