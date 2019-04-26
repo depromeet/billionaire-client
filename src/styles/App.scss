@@ -1,5 +1,5 @@
 /* 공통 적용(리셋) */
-body{margin:0;font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif;font-size:16px;font-style:normal;font-stretch:normal;color:#ffffff;background:#212121}
+body{margin:0;font-size:16px;font-style:normal;font-stretch:normal;color:#ffffff;background:#212121}
 h1{margin:0}
 ul{padding-left:0;margin:0}
 li{list-style:none}
@@ -11,19 +11,19 @@ input[type=text]:focus{outline:none}
 .num {font-family:"Exo 2", sans-serif}
 .emphasis{font-size:28px;font-weight:bold} 
 .underline{line-height:16px;letter-spacing:0.5px;background: linear-gradient(0, #5227ff 20%, transparent 10%);box-shadow:inset 0 -3px #212121}
-.visible{display:block}
-.hidden{display:none}
+.visible{visibility:visible}
+.hidden{visibility:hidden}
 .btn{font-family:"Apple SD Gothic Neo",'Noto Sans KR',sans-serif}
 .verticaltop{vertical-align:top}
-.icon-down{width:16px;height:9px;color:transparent;background:url('/assets/icon-down.svg')}
-.icon-previous{float:left;width:11px;height:20px;color:transparent;background:url('/assets/icon-back.svg')}
+.icon-down{width:16px;height:9px;background:url('/assets/icon-down.svg')}
+.icon-previous{float:left;width:11px;height:20px;background:url('/assets/icon-back.svg')}
 
 /* 헤더(로고와 메뉴버튼) */
 .header{padding:26px 0;position:relative}
 .header::after{content:'';clear:both;display:block}
-.header-logo{float:left;width:91px;height:29px;color:transparent;background:url('/assets/depgazua-bi.svg')}
+.header-logo{float:left;width:91px;height:29px;background:url('/assets/depgazua-bi.svg')}
 .header-menu{position:absolute;top:50%;right:0;transform:translateY(-50%)}
-.btn-menu{background:transparent;color:transparent;width:24px;height:20px;overflow:hidden}
+.btn-menu{background:transparent;width:24px;height:20px;overflow:hidden}
 .menubar{position:absolute;left:0;width:100%;height:2px;background:#fff;border-radius:5px;transition:all 0.5s}
 .menubar-top{top:0}
 .menubar-middle{top:50%;transform:translateY(-25%)}
@@ -98,11 +98,11 @@ input[type=text]:focus{outline:none}
 .sub-account-2{background:#fa7b60}
 .sub-number{color:#5c594d}
 .add-account{background:#141414;text-align:center;cursor:pointer}
-.add-account-button{background:url('/assets/btn.svg');display:inline-block;width:60px;height:60px;color:transparent;margin:40px auto}
+.add-account-button{background:url('/assets/btn.svg');display:inline-block;width:60px;height:60px;margin:40px auto}
 
 /* 계좌번호 복사버튼 */
 .account-copy{display:inline-block}
-.btn-copy{width:14px;height:14px;overflow:hidden;vertical-align:middle;color:transparent;background:transparent;position:relative;margin-left:8px}
+.btn-copy{width:14px;height:14px;overflow:hidden;vertical-align:middle;background:transparent;position:relative;margin-left:8px}
 .copybox{position:absolute;width:8px;height:8px;border:1px solid;border-color:#222222}
 .copy-back{top:0;left:0}
 .copy-front{top:25%;right:0}

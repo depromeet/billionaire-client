@@ -99,7 +99,7 @@ class ProductDetail extends Component {
                   <div className="terms-content-medium terms-content-select">
                     1만원
                   </div>
-                  <button className="terms-select-item icon-down">옵션 더보기</button>
+                  <button className="terms-select-item icon-down"><span className="hidden">옵션 더보기</span></button>
                 </div>
                 <div className="terms">
                   <div className="terms-title verticaltop">기간</div>
