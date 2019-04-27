@@ -17,14 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(actions.joinProductRequest(id));
   },
   getAirPollutionRequest: () => {
-    return new Promise((resolve, reject) => {
-      dispatch(actions.getAirPollutionRequest()).then(() => {
-        console.log('done0');
-        resolve();
-      }).catch(() => {
-        reject();
-      });
-    });
+    dispatch(actions.getAirPollutionRequest());
   },
   getKakaotalkRequest: () => {
     dispatch(actions.getKakaotalkRequest());

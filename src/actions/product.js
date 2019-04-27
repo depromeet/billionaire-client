@@ -108,22 +108,17 @@ export const getAirPollutionFailure = (err) => ({
 
 export const getAirPollutionRequest = () => (dispatch, getState) => {
   const state = getState();
-  return new Promise((resolve, reject) => {
-    dispatch(getAirPollutionWaiting());
-    return axios({
-      method: 'get',
-      url: `/api/graphs/airpollution`,
-      headers: {
-        Authorization: `Bearer ${state.authReducer.auth.token}`,
-      }
-    }).then((response) => {
-      dispatch(getAirPollutionSuccess(response));
-      console.log('done-1');
-      resolve();
-    }).catch((err) => {
-      dispatch(getAirPollutionFailure(err));
-      reject();
-    });
+  dispatch(getAirPollutionWaiting());
+  return axios({
+    method: 'get',
+    url: `/api/graphs/airpollution`,
+    headers: {
+      Authorization: `Bearer ${state.authReducer.auth.token}`,
+    }
+  }).then((response) => {
+    dispatch(getAirPollutionSuccess(response));
+  }).catch((err) => {
+    dispatch(getAirPollutionFailure(err));
   });
 }
 

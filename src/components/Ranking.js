@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Header, RankingSaturday } from 'components';
-import 'styles/Ranking.scss';
 
 class Ranking extends Component {
   state = {
@@ -111,7 +110,6 @@ class Ranking extends Component {
               <button className="btn btn-fixed btn-default btn-more icon-down"><span>나머지 순위 더보기</span></button>
             </div>
           </>
-        }
       </>
     );
   }

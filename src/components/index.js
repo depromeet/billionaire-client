@@ -1,6 +1,5 @@
 import Login from './Login';
 import Header from './Header';
-import Dashboard from './Dashboard';
 import Account from './Account';
 import AccountDetail from './AccountDetail';
 import Product from './Product';
@@ -8,13 +7,13 @@ import ProductDetail from './ProductDetail';
 import ProductAgreement from './ProductAgreement';
 import Ranking from './Ranking';
 import RankingSaturday from './RankingSaturday';
-import Transfer from './Transfer';
 import Modal from './Modal';
+import ToastMessage from './ToastMessage';
 
 export {
-  Login, Header, Dashboard, 
+  Login, Header, 
   Account, AccountDetail,
   Product, ProductDetail, ProductAgreement,
-  Ranking, RankingSaturday, Transfer, 
-  Modal, 
+  Ranking, RankingSaturday, 
+  Modal, ToastMessage,
 };
