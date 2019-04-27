@@ -1,0 +1,36 @@
+#toast {
+  width: 210px;
+  height: 210px;
+  opacity: 0.9;
+  background-color: #5227ff;
+  border-radius: 50%;
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.toast-message {
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+
+  .money {
+    font-family: 'Exo 2';
+    font-size: 24px;
+    font-weight: 600;
+  }
+}

@@ -8,11 +8,12 @@ import ProductAgreement from './ProductAgreement';
 import Ranking from './Ranking';
 import RankingSaturday from './RankingSaturday';
 import Modal from './Modal';
+import ToastMessage from './ToastMessage';
 
 export {
   Login, Header, 
   Account, AccountDetail,
   Product, ProductDetail, ProductAgreement,
   Ranking, RankingSaturday, 
-  Modal, 
+  Modal, ToastMessage,
 };

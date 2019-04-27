@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Header, RankingSaturday } from 'components';
-import 'styles/Ranking.scss';
 
 class Ranking extends Component {
   state = {

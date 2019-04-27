@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { KakaoAppKey } from 'config';
-import 'styles/Login.scss';
 
 class Login extends Component {
   componentDidMount() {

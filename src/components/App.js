@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import { LoginContainer, AccountContainer, AccountDetailContainer, 
   ProductContainer, RankingContainer } from 'containers';
-import { Modal } from 'components';
+import { ToastMessage } from 'components';
 import withModal from 'components/withModal';
 
 import 'styles/App.scss';
@@ -37,11 +37,13 @@ class App extends Component {
           { 
             isModalOpened && attend && attend.status === "SUCCESS" &&
             attend.data.status === 200 &&
-            <Modal>
-              출석하였습니다. (임시 Modal입니다 ^_^)
-              +{attend.data.data.response.point}家
-              <button id="modalConfirm" className="btn-confirm" onClick={this.props.closeModal}>확인</button>
-            </Modal>
+            <ToastMessage>
+              <p>출석하였습니다.</p>
+              <p>
+                <span className="money">+ 10000</span> 家
+              </p>
+              {/* +{attend.data.data.response.point}家 */}
+            </ToastMessage>
           }
           <PrivateRoute exact path="/account" component={AccountContainer} auth={this.props.auth} />
           <PrivateRoute path="/account/detail" component={AccountDetailContainer} auth={this.props.auth} />
