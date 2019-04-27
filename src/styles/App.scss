@@ -61,7 +61,7 @@ input[type=text]:focus{outline:none}
 
 /* 검색창 */
 .search {margin-top:44px}
-.input-search{color:#fff;font-weight:bold;line-height:20px;box-sizing:border-box;width:100%;height:40px;background:transparent;border:0;border-bottom:solid 4px #5227ff;padding:10px 0;font-size:16px;background:no-repeat right bottom 7px/8% url("/assets/icon.svg");}
+.input-search{color:#fff;font-weight:bold;line-height:20px;box-sizing:border-box;width:100%;height:40px;background:transparent;border:0;border-bottom:solid 4px #5227ff;padding:10px 0;font-size:16px;background:no-repeat right bottom 7px/32px url("/assets/search-icon.svg");}
 .input-search::placeholder{font-weight:300;}
 
 /* 검색결과 리스트 */
@@ -75,6 +75,7 @@ input[type=text]:focus{outline:none}
 .profile-list-img{width:40px;height:40px;vertical-align:middle;margin-left:8px}
 .profile-list-name{display:inline-block;margin-left:15px;font-weight:400}
 .profile-list-account{float:right;transform:translateY(50%)}
+.profile-list::after{content:'';clear:both;display:block}
 .list-num{display:inline-block;width:16px;text-align:left}
 
 /* 더보기 버튼 */
