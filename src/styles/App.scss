@@ -131,6 +131,7 @@ input[type=text]:focus{outline:none}
 .transaction-date{width:10%;float:left;line-height:16px}
 .transaction-list{width:77%;float:right}
 .transaction-list li:nth-child(n+2){margin-top:66px}
+.transaction-list::after{content:'';clear:both;display:inline-block}
 .transaction-item{position:relative}
 .transaction-info{width:auto;font-weight:300}
 .transaction-amount{float:right;line-height:16px}

@@ -89,16 +89,20 @@ class ProductDetail extends Component {
                 
                 {/* 디자인 시안의 변경에 따라 그래프의 표시주기를 변경하는 버튼이 추가되었습니다. */}
                 <div className="graph-control">
-                  <button className="btn btn-graph">1일</button>
+                  <button className="btn btn-graph">1주일</button>
                   <button className="btn btn-graph">1개월</button>
                   <button className="btn btn-graph">6개월</button>
                   <button className="btn btn-graph">1년</button>
                 </div>
                 <div className="terms">
                   <div className="terms-title">투자금액</div>
-                  <div className="terms-content-medium terms-content-select">
-                    1만원
-                  </div>
+                  <select className="terms-content-medium terms-content-select">
+                    <option>1만원</option>
+                    <option>5만원</option>
+                    <option>10만원</option>
+                    <option>50만원</option>
+                    <option>100만원</option>
+                  </select>
                   <button className="terms-select-item icon-down"><span className="hidden">옵션 더보기</span></button>
                 </div>
                 <div className="terms">
