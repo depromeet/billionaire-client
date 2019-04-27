@@ -40,7 +40,7 @@ class Ranking extends Component {
           )
         }
           <>
-            <div className="ranking">
+            <div>
               {
                 me && 
                 <section className="profile">
