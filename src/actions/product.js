@@ -15,12 +15,13 @@ export const getProductFailure = (err) => ({
   err,
 });
 
-export const getProductRequest = () => (dispatch, getState) => {
-  const state = getState();
+export const getProductRequest = () => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getProductWaiting());
-  return axios.get('/api/instruments?expired=false', {
+  // return axios.get('/api/instruments?expired=false', {
+  return axios.get('/api/instruments', {
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(getProductSuccess(response));
@@ -44,12 +45,12 @@ export const getProductDetailFailure = (err) => ({
   err,
 });
 
-export const getProductDetailRequest = (id) => (dispatch, getState) => {
-  const state = getState();
+export const getProductDetailRequest = (id) => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getProductDetailWaiting());
   return axios.get(`/api/instruments/${id}`, {
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(getProductDetailSuccess(response));
@@ -73,8 +74,8 @@ export const joinProductFailure = (err) => ({
   err,
 });
 
-export const joinProductRequest = (id) => (dispatch, getState) => {
-  const state = getState();
+export const joinProductRequest = (id) => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(joinProductWaiting());
   return axios({
     method: 'post',
@@ -83,7 +84,7 @@ export const joinProductRequest = (id) => (dispatch, getState) => {
       investment: 50,
     },
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(joinProductSuccess(response));
@@ -106,14 +107,14 @@ export const getAirPollutionFailure = (err) => ({
   err,
 });
 
-export const getAirPollutionRequest = () => (dispatch, getState) => {
-  const state = getState();
+export const getAirPollutionRequest = () => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getAirPollutionWaiting());
   return axios({
     method: 'get',
     url: `/api/graphs/airpollution`,
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(getAirPollutionSuccess(response));
@@ -136,14 +137,14 @@ export const getKakaotalkFailure = (err) => ({
   err,
 });
 
-export const getKakaotalkRequest = () => (dispatch, getState) => {
-  const state = getState();
+export const getKakaotalkRequest = () => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getKakaotalkWaiting());
   return axios({
     method: 'get',
     url: `/api/graphs/kakaotalk`,
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(getKakaotalkSuccess(response));
@@ -166,14 +167,14 @@ export const getDpmSessionFailure = (err) => ({
   err,
 });
 
-export const getDpmSessionRequest = () => (dispatch, getState) => {
-  const state = getState();
+export const getDpmSessionRequest = () => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getDpmSessionWaiting());
   return axios({
     method: 'get',
     url: `/api/graphs/session`,
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(getDpmSessionSuccess(response));

@@ -7,10 +7,10 @@ import withModal from 'components/withModal';
 
 import 'styles/App.scss';
 
-const PrivateRoute = ({ component: Component, auth, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route {...rest} render={props => (
-      auth.status !== 'SUCCESS' ? 
+      !localStorage.getItem('token') ? 
         <Redirect to={{
           pathname: '/',
           state: { from: props.location }
@@ -22,7 +22,8 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => {
 
 class App extends Component {
   componentDidMount() {
-    if (this.props.auth.status === 'SUCCESS') {
+    // if (this.props.auth.status === 'SUCCESS') {
+    if (localStorage.getItem('token')) {
       this.props.getMeRequest();
     }
   }
@@ -31,7 +32,7 @@ class App extends Component {
     const { isModalOpened, attend } = this.props;
     return (
       <BrowserRouter>
-        <Route exact path="/" component={LoginContainer} auth={this.props.auth} />
+        <Route exact path="/" component={LoginContainer} />
         
         <div className="wrapper">
           { 
@@ -40,16 +41,15 @@ class App extends Component {
             <ToastMessage>
               <p>출석하였습니다.</p>
               <p>
-                <span className="money">+ 10000</span> 家
+                <span className="money">+{attend.data.data.response.point}</span> 家
               </p>
-              {/* +{attend.data.data.response.point}家 */}
             </ToastMessage>
           }
-          <PrivateRoute exact path="/account" component={AccountContainer} auth={this.props.auth} />
-          <PrivateRoute path="/account/detail" component={AccountDetailContainer} auth={this.props.auth} />
-          <PrivateRoute exact path="/product" component={ProductContainer} auth={this.props.auth} />
-          <PrivateRoute path="/product/:id" component={ProductContainer} auth={this.props.auth} />
-          <PrivateRoute path="/ranking" component={RankingContainer} auth={this.props.auth} />
+          <PrivateRoute exact path="/account" component={AccountContainer} />
+          <PrivateRoute path="/account/detail" component={AccountDetailContainer} />
+          <PrivateRoute exact path="/product" component={ProductContainer} />
+          <PrivateRoute path="/product/:id" component={ProductContainer} />
+          <PrivateRoute path="/ranking" component={RankingContainer} />
         </div>
       </BrowserRouter>
     );

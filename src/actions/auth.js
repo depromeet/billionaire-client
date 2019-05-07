@@ -53,6 +53,7 @@ export const authRequest = () => (dispatch, getState) => {
   return axios.post('/api/members/login', {
     token: state.authReducer.kakaoAuthorize.token,
   }).then((response) => {
+    localStorage.setItem('token', response.data.response.token);
     dispatch(authSuccess(response));
     dispatch(getMeRequest());
   }).catch((err) => {
@@ -74,14 +75,15 @@ export const getMeFailure = (err) => ({
   err,
 });
 
-export const getMeRequest = () => (dispatch, getState) => {
-  const state = getState();
+export const getMeRequest = () => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getMeWaiting());
   return axios.get('/api/members/me', {
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`, 
     }
   }).then((response) => {
+    localStorage.setItem('me', JSON.stringify(response.data.response));
     dispatch(getMeSuccess(response));
     dispatch(attendRequest());
   }).catch((err) => {
@@ -103,14 +105,14 @@ export const attendFailure = (err) => ({
   err,
 });
 
-export const attendRequest = () => (dispatch, getState) => {
-  const state = getState();
+export const attendRequest = () => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(attendWaiting());
   return axios({
     url: '/api/members/me/attend',
     method: 'post',
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(attendSuccess(response));
