@@ -17,14 +17,14 @@ class ToastMessage extends Component {
       <>
       {
         this.state.isMessageOpened && 
-        <>
+        <div class="toast-container" onClick={this.closeMessage}>
           <div id="mask" className="mask"></div>
-          <div id="toast" className="toast" onClick={this.closeMessage}>
+          <div id="toast" className="toast">
             <div className="toast-message">
               { this.props.children }
             </div>
           </div>
-        </>
+        </div>
       }
       </>
     );

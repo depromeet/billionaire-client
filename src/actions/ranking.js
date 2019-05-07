@@ -16,14 +16,14 @@ export const getRankingFailure = (err) => ({
   err,
 });
 
-export const getRankingRequest = () => (dispatch, getState) => {
-  const state = getState();
+export const getRankingRequest = () => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getRankingWaiting());
   return axios({
     url: '/api/members/rank?type=ACCOUNT', 
     method: 'post',
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     const data = response.data.map((item) => {

@@ -15,12 +15,12 @@ export const getAccountFailure = (err) => ({
   err,
 });
 
-export const getAccountRequest = () => (dispatch, getState) => {
-  const state = getState();
+export const getAccountRequest = () => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getAccountWaiting());
   return axios.get('/api/accounts', {
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(getAccountSuccess(response));
@@ -43,12 +43,12 @@ export const getTransactionFailure = (err) => ({
   err,
 });
 
-export const getTransactionRequest = (id) => (dispatch, getState) => {
-  const state = getState();
+export const getTransactionRequest = (id) => (dispatch) => {
+  const token = localStorage.getItem('token');
   dispatch(getAccountWaiting());
   return axios.get(`/api/accounts/${id}/transactions`, {
     headers: {
-      Authorization: `Bearer ${state.authReducer.auth.token}`,
+      Authorization: `Bearer ${token}`,
     }
   }).then((response) => {
     dispatch(getTransactionSuccess(response));
