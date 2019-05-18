@@ -23,10 +23,6 @@ class AccountDetail extends Component {
                   <span className="num emphasis">{ item.balance }</span> 家
                   <div className={(item.accountType === 'MEMBER' ? 'main-number' : 'sub-number') + " account-number num"}>
                     {item.accountNumber}
-                    <button className="btn-copy" style={{ 'borderColor': '#5c594d' }}>복사하기
-                      <div className="copybox copy-back"></div>
-                      <div className={"copybox copy-front " + (item.accountType === 'MEMBER' ? 'main-account' : 'sub-account')}></div>
-                    </button>
                   </div>
                 </span>
               </section>
