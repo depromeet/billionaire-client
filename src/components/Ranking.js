@@ -89,7 +89,7 @@ class Ranking extends Component {
                         return item.member.name.includes(this.state.search);
                       }).map((item, index) => (
                         <li key={index}>
-                          <div className="num list-num">{index + 1}</div>
+                          <div className="num list-num">{item.rankNumber}</div>
                           <img src={item.member.profileImageUrl} alt="" className="profile-img profile-list-img"/>
                           <div className="profile-list-name">{item.member.name}</div>
                           <div className="profile-list-account"><span className="num">{item.assetValue}</span> <span className="opacity">家</span></div>
@@ -98,7 +98,7 @@ class Ranking extends Component {
                     : 
                     data.map((item, index) => (
                       <li key={index}>
-                        <div className="num list-num">{index + 1}</div>
+                        <div className="num list-num">{item.rankNumber}</div>
                         <img src={item.member.profileImageUrl} alt="" className="profile-img profile-list-img"/>
                         <div className="profile-list-name">{item.member.name}</div>
                         <div className="profile-list-account"><span className="num">{item.assetValue}</span> <span className="opacity">家</span></div>
