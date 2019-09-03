@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Header, ProductDetail } from 'components';
+import { Header, ProductDetail, ProductGraph } from 'components';
 
-class Product extends Component {
+class Product extends Component {  
   componentDidMount () {
     this.props.getProductRequest();
     this.props.getAirPollutionRequest();
@@ -28,7 +28,10 @@ class Product extends Component {
           />
         }
         {
-          products.status === "SUCCESS" && products.data.length <= 0 && <div style={{'color': 'white'}}>매입 가능한 품목이 없습니다.</div>
+          products.status === "SUCCESS" && products.data.length <= 0 &&
+          <div style={{'color': 'white'}}>
+            매입 가능한 품목이 없습니다.
+          </div>
         }
         {
           products.status === "SUCCESS" && products.data.length > 0 && !match.params.id && 
@@ -43,63 +46,21 @@ class Product extends Component {
                   <span className="earning-variation num raise">42</span>
                 </div>
               </div>
-              <div className="earning-graph data-panel">
               {
                 (this.props.airPollution.data && item.dataType === "AIR_POLLUTION") ? 
-                  
-                    <svg
-                      width="100%" height="100%"
-                    >
-                      <polyline
-                        points={
-                          this.props.airPollution.data.map((item, index) => {
-                            return (
-                              index * 20 + "," + item.number * 20
-                            )
-                          })
-                        }
-                        style={{'fill': 'none', 'stroke': '#ffdc6c', 'strokeWidth' :'1'}} 
-                      />
-                    </svg>
+                  <ProductGraph
+                    data={this.props.airPollution.data}
+                  />  
                 : (this.props.dpmSession.data && item.dataType === "NUMBER_OF_ATTENDEE") ? 
-                  <div className="earning-graph data-panel">
-                    <svg
-                      width="100%" height="100%"
-                    >
-                      <polyline
-                        points={
-                          this.props.dpmSession.data.map((item, index) => {
-                            return (
-                              index * 50 + "," + item.number * 2
-                            )
-                          })
-                        }
-                        style={{'fill': 'none', 'stroke': '#ffdc6c', 'strokeWidth' :'1'}} 
-                      />
-                    </svg>
-                  </div>
+                  <ProductGraph data={this.props.dpmSession.data} />
                 : (this.props.kakaotalk.data && item.dataType === "KAKAOTALK") ?
-                  <div className="earning-graph data-panel">
-                    <svg
-                      width="100%" height="100%"
-                    >
-                      <polyline
-                        points={
-                          this.props.kakaotalk.data.map((item, index) => {
-                            return (
-                              index * 50 + "," + item.number
-                            )
-                          })
-                        }
-                        style={{'fill': 'none', 'stroke': '#ffdc6c', 'strokeWidth' :'1'}} 
-                      />
-                    </svg>
-                  </div>
+                  <ProductGraph data={this.props.kakaotalk.data} />
                 : <></>
               }
-              </div>
-              <Link to={`/product/${item.id}`}>
-                <button id="buyStock" className="btn btn-detail btn-buy"><span>상품 상세 보러 가즈아</span></button>
+             <Link to={`/product/${item.id}`}>
+                <button id="buyStock" className="btn btn-detail btn-buy">
+                  <span>상품 상세 보러 가즈아</span>
+                </button>
               </Link>
             </article>
           ))

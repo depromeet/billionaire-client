@@ -18,8 +18,8 @@ export const getProductFailure = (err) => ({
 export const getProductRequest = () => (dispatch) => {
   const token = localStorage.getItem('token');
   dispatch(getProductWaiting());
-  return axios.get('/api/instruments?expired=false', {
-  // return axios.get('/api/instruments', {
+  // return axios.get('/api/instruments?expired=false', {
+  return axios.get('/api/instruments', {
     headers: {
       Authorization: `Bearer ${token}`,
     }

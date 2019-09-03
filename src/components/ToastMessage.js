@@ -17,7 +17,7 @@ class ToastMessage extends Component {
       <>
       {
         this.state.isMessageOpened && 
-        <div class="toast-container" onClick={this.closeMessage}>
+        <div className="toast-container" onClick={this.closeMessage}>
           <div id="mask" className="mask"></div>
           <div id="toast" className="toast">
             <div className="toast-message">
