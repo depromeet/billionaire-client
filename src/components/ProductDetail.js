@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { Header, Modal, ProductAgreement } from 'components';
+import { Header, Modal, ProductGraph, ProductAgreement } from 'components';
 
 class ProductDetail extends Component {
   state = {
@@ -84,7 +84,7 @@ class ProductDetail extends Component {
                       <span className="earning-variation num raise">42</span>
                     </div>
                   </div>
-                  <div className="earning-graph data-panel">그래프 위치</div>
+                  {/* <ProductGraph /> */}
                 </article>
                 <div className="graph-control">
                   <button className="btn btn-graph">1주일</button>
